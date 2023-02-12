@@ -15,32 +15,80 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    @State var showMoreOptions = false
 
     var body: some View {
+            ZStack {
+                BackgroundView()
+                TabView {
+                    BackgroundView()
+                        .tabItem {
+                            Image(systemName: "wifi.slash")
+                            Text("Offline")
+                        }
+                    LoginView()
+                        .tabItem {
+                            Image(systemName: "person.3.fill")
+                            Text("Online")
+                        }
+                }
+                .tint(.purple)
+                
+            }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Text("Offline Inventories").font(.headline)
+//                }
+//                ToolbarItem {
+//                    Button(action: showOptions) {
+//                        Image(systemName: "ellipsis")
+//                            .rotationEffect(Angle(degrees: 90))
+//                            .foregroundColor(Color.white)
+//                            .shadow(radius: 1)
+//                            .overlay(showMoreOptions ? optionsOverlay: nil)
+//                    }
+//                }
+//            }
+    }
+    
+    func showOptions() {
+        showMoreOptions.toggle()
+    }
+    
+    var optionsOverlay: some View {
+        List {
+            
+        }
+    }
+    
+    var oldBody: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+            ZStack {
+                BackgroundView()
+                List {
+                    ForEach(items) { item in
+                        NavigationLink {
+                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        } label: {
+                            Text(item.timestamp!, formatter: itemFormatter)
+                        }
                     }
+                    .onDelete(perform: deleteItems)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
+                .toolbar {
 #if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
 #endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    ToolbarItem {
+                        Button(action: addItem) {
+                            Label("Add Item", systemImage: "plus")
+                        }
                     }
                 }
+                Text("Select an item")
             }
-            Text("Select an item")
         }
     }
 
@@ -86,5 +134,6 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .preferredColorScheme(.dark)
     }
 }

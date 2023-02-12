@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE9386AA299864770084A4D3 /* GenericPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386A9299864770084A4D3 /* GenericPopUp.swift */; };
+		BE9386AC299868AC0084A4D3 /* GenericButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386AB299868AC0084A4D3 /* GenericButton.swift */; };
+		BE9386B029986CB10084A4D3 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386AF29986CB10084A4D3 /* CreateAccountView.swift */; };
+		BE9386B2299875110084A4D3 /* ProfileInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386B1299875110084A4D3 /* ProfileInfoCard.swift */; };
+		BE9386B529993EE70084A4D3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BE9386B429993EE70084A4D3 /* Lottie */; };
+		BE9386B729993FCA0084A4D3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386B629993FCA0084A4D3 /* LottieView.swift */; };
+		BE9386BB299945260084A4D3 /* CubeFunAnim.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386BA299945260084A4D3 /* CubeFunAnim.json */; };
+		BE9386BD299947B50084A4D3 /* anim_notes.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386BC299947B50084A4D3 /* anim_notes.json */; };
+		BE9386BF299947D70084A4D3 /* anim_float.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386BE299947D70084A4D3 /* anim_float.json */; };
+		BE9386C1299947EB0084A4D3 /* bus.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386C0299947EB0084A4D3 /* bus.json */; };
+		BE9386C3299947F20084A4D3 /* cloud.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386C2299947F20084A4D3 /* cloud.json */; };
+		BE9386C5299947F80084A4D3 /* error_bear.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386C4299947F80084A4D3 /* error_bear.json */; };
+		BE9386C7299948000084A4D3 /* error_smiley.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386C6299948000084A4D3 /* error_smiley.json */; };
+		BE9386C9299948070084A4D3 /* laughing_clown.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386C8299948070084A4D3 /* laughing_clown.json */; };
+		BE9386CB2999480D0084A4D3 /* note_guy.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386CA2999480D0084A4D3 /* note_guy.json */; };
+		BE9386CD299948120084A4D3 /* panda.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386CC299948120084A4D3 /* panda.json */; };
+		BE9386CF299948330084A4D3 /* rover.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386CE299948330084A4D3 /* rover.json */; };
+		BE9386D129995A250084A4D3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386D029995A250084A4D3 /* LoginView.swift */; };
+		BE9386D529995F0D0084A4D3 /* welcome1.json in Resources */ = {isa = PBXBuildFile; fileRef = BE9386D429995F0C0084A4D3 /* welcome1.json */; };
+		BE9386DB2999645C0084A4D3 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386DA2999645C0084A4D3 /* ForgotPasswordView.swift */; };
+		BE9386DD299964C50084A4D3 /* GenericTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386DC299964C50084A4D3 /* GenericTextView.swift */; };
 		BEB068072995CAD700958EEA /* InventoryAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068062995CAD700958EEA /* InventoryAppApp.swift */; };
 		BEB068092995CAD700958EEA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068082995CAD700958EEA /* Persistence.swift */; };
 		BEB0680C2995CAD700958EEA /* InventoryApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEB0680A2995CAD700958EEA /* InventoryApp.xcdatamodeld */; };
@@ -16,6 +37,10 @@
 		BEB0681E2995CAD900958EEA /* InventoryAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0681D2995CAD900958EEA /* InventoryAppTests.swift */; };
 		BEB068282995CAD900958EEA /* InventoryAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068272995CAD900958EEA /* InventoryAppUITests.swift */; };
 		BEB0682A2995CAD900958EEA /* InventoryAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068292995CAD900958EEA /* InventoryAppUITestsLaunchTests.swift */; };
+		BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068362995D0A000958EEA /* GlobalConstants.swift */; };
+		BEB0683B2995D3F500958EEA /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0683A2995D3F500958EEA /* BackgroundView.swift */; };
+		BEB0683E2995D55500958EEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0683D2995D55500958EEA /* Colors.swift */; };
+		BEB068412995D88D00958EEA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068402995D88D00958EEA /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +61,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE9386A9299864770084A4D3 /* GenericPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPopUp.swift; sourceTree = "<group>"; };
+		BE9386AB299868AC0084A4D3 /* GenericButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericButton.swift; sourceTree = "<group>"; };
+		BE9386AF29986CB10084A4D3 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		BE9386B1299875110084A4D3 /* ProfileInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCard.swift; sourceTree = "<group>"; };
+		BE9386B629993FCA0084A4D3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		BE9386BA299945260084A4D3 /* CubeFunAnim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CubeFunAnim.json; sourceTree = "<group>"; };
+		BE9386BC299947B50084A4D3 /* anim_notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim_notes.json; sourceTree = "<group>"; };
+		BE9386BE299947D70084A4D3 /* anim_float.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim_float.json; sourceTree = "<group>"; };
+		BE9386C0299947EB0084A4D3 /* bus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bus.json; sourceTree = "<group>"; };
+		BE9386C2299947F20084A4D3 /* cloud.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloud.json; sourceTree = "<group>"; };
+		BE9386C4299947F80084A4D3 /* error_bear.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error_bear.json; sourceTree = "<group>"; };
+		BE9386C6299948000084A4D3 /* error_smiley.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error_smiley.json; sourceTree = "<group>"; };
+		BE9386C8299948070084A4D3 /* laughing_clown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = laughing_clown.json; sourceTree = "<group>"; };
+		BE9386CA2999480D0084A4D3 /* note_guy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = note_guy.json; sourceTree = "<group>"; };
+		BE9386CC299948120084A4D3 /* panda.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = panda.json; sourceTree = "<group>"; };
+		BE9386CE299948330084A4D3 /* rover.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rover.json; sourceTree = "<group>"; };
+		BE9386D029995A250084A4D3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BE9386D429995F0C0084A4D3 /* welcome1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = welcome1.json; sourceTree = "<group>"; };
+		BE9386DA2999645C0084A4D3 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		BE9386DC299964C50084A4D3 /* GenericTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextView.swift; sourceTree = "<group>"; };
 		BEB068032995CAD700958EEA /* InventoryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB068062995CAD700958EEA /* InventoryAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryAppApp.swift; sourceTree = "<group>"; };
 		BEB068082995CAD700958EEA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -49,6 +94,10 @@
 		BEB068232995CAD900958EEA /* InventoryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventoryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB068272995CAD900958EEA /* InventoryAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryAppUITests.swift; sourceTree = "<group>"; };
 		BEB068292995CAD900958EEA /* InventoryAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BEB068362995D0A000958EEA /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		BEB0683A2995D3F500958EEA /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		BEB0683D2995D55500958EEA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BEB068402995D88D00958EEA /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE9386B529993EE70084A4D3 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +126,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE9386B8299943500084A4D3 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BE9386BE299947D70084A4D3 /* anim_float.json */,
+				BE9386BA299945260084A4D3 /* CubeFunAnim.json */,
+				BE9386C0299947EB0084A4D3 /* bus.json */,
+				BE9386C4299947F80084A4D3 /* error_bear.json */,
+				BE9386C8299948070084A4D3 /* laughing_clown.json */,
+				BE9386C6299948000084A4D3 /* error_smiley.json */,
+				BE9386C2299947F20084A4D3 /* cloud.json */,
+				BE9386CA2999480D0084A4D3 /* note_guy.json */,
+				BE9386BC299947B50084A4D3 /* anim_notes.json */,
+				BE9386CE299948330084A4D3 /* rover.json */,
+				BE9386CC299948120084A4D3 /* panda.json */,
+				BE9386D429995F0C0084A4D3 /* welcome1.json */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
 		BEB067FA2995CAD700958EEA = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +168,12 @@
 		BEB068052995CAD700958EEA /* InventoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				BEB0683F2995D85D00958EEA /* Resources */,
+				BEB0683C2995D53E00958EEA /* Components */,
+				BEB068392995D28100958EEA /* Views */,
+				BEB068382995D27600958EEA /* ViewModels */,
 				BEB068062995CAD700958EEA /* InventoryAppApp.swift */,
 				BEB068082995CAD700958EEA /* Persistence.swift */,
-				BEB0680D2995CAD700958EEA /* ContentView.swift */,
 				BEB0680F2995CAD900958EEA /* Assets.xcassets */,
 				BEB068112995CAD900958EEA /* InventoryApp.entitlements */,
 				BEB0680A2995CAD700958EEA /* InventoryApp.xcdatamodeld */,
@@ -135,6 +207,48 @@
 			path = InventoryAppUITests;
 			sourceTree = "<group>";
 		};
+		BEB068382995D27600958EEA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BEB068392995D28100958EEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BEB0680D2995CAD700958EEA /* ContentView.swift */,
+				BEB0683A2995D3F500958EEA /* BackgroundView.swift */,
+				BE9386AF29986CB10084A4D3 /* CreateAccountView.swift */,
+				BE9386B1299875110084A4D3 /* ProfileInfoCard.swift */,
+				BE9386D029995A250084A4D3 /* LoginView.swift */,
+				BE9386DA2999645C0084A4D3 /* ForgotPasswordView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BEB0683C2995D53E00958EEA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BE9386A9299864770084A4D3 /* GenericPopUp.swift */,
+				BE9386AB299868AC0084A4D3 /* GenericButton.swift */,
+				BE9386B629993FCA0084A4D3 /* LottieView.swift */,
+				BE9386DC299964C50084A4D3 /* GenericTextView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BEB0683F2995D85D00958EEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE9386B8299943500084A4D3 /* LottieFiles */,
+				BEB068362995D0A000958EEA /* GlobalConstants.swift */,
+				BEB0683D2995D55500958EEA /* Colors.swift */,
+				BEB068402995D88D00958EEA /* Strings.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +265,9 @@
 			dependencies = (
 			);
 			name = InventoryApp;
+			packageProductDependencies = (
+				BE9386B429993EE70084A4D3 /* Lottie */,
+			);
 			productName = InventoryApp;
 			productReference = BEB068032995CAD700958EEA /* InventoryApp.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +340,9 @@
 				Base,
 			);
 			mainGroup = BEB067FA2995CAD700958EEA;
+			packageReferences = (
+				BE9386B329993EE70084A4D3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = BEB068042995CAD700958EEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,8 +359,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE9386C7299948000084A4D3 /* error_smiley.json in Resources */,
+				BE9386BD299947B50084A4D3 /* anim_notes.json in Resources */,
+				BE9386CD299948120084A4D3 /* panda.json in Resources */,
+				BE9386BB299945260084A4D3 /* CubeFunAnim.json in Resources */,
+				BE9386C5299947F80084A4D3 /* error_bear.json in Resources */,
+				BE9386C9299948070084A4D3 /* laughing_clown.json in Resources */,
+				BE9386C3299947F20084A4D3 /* cloud.json in Resources */,
+				BE9386CF299948330084A4D3 /* rover.json in Resources */,
+				BE9386CB2999480D0084A4D3 /* note_guy.json in Resources */,
+				BE9386C1299947EB0084A4D3 /* bus.json in Resources */,
 				BEB068142995CAD900958EEA /* Preview Assets.xcassets in Resources */,
 				BEB068102995CAD900958EEA /* Assets.xcassets in Resources */,
+				BE9386BF299947D70084A4D3 /* anim_float.json in Resources */,
+				BE9386D529995F0D0084A4D3 /* welcome1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,10 +397,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE9386B029986CB10084A4D3 /* CreateAccountView.swift in Sources */,
+				BEB0683B2995D3F500958EEA /* BackgroundView.swift in Sources */,
+				BE9386AA299864770084A4D3 /* GenericPopUp.swift in Sources */,
 				BEB0680C2995CAD700958EEA /* InventoryApp.xcdatamodeld in Sources */,
+				BEB068412995D88D00958EEA /* Strings.swift in Sources */,
 				BEB068072995CAD700958EEA /* InventoryAppApp.swift in Sources */,
+				BEB0683E2995D55500958EEA /* Colors.swift in Sources */,
+				BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */,
+				BE9386D129995A250084A4D3 /* LoginView.swift in Sources */,
+				BE9386B729993FCA0084A4D3 /* LottieView.swift in Sources */,
 				BEB0680E2995CAD700958EEA /* ContentView.swift in Sources */,
 				BEB068092995CAD700958EEA /* Persistence.swift in Sources */,
+				BE9386AC299868AC0084A4D3 /* GenericButton.swift in Sources */,
+				BE9386DD299964C50084A4D3 /* GenericTextView.swift in Sources */,
+				BE9386DB2999645C0084A4D3 /* ForgotPasswordView.swift in Sources */,
+				BE9386B2299875110084A4D3 /* ProfileInfoCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +567,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"InventoryApp/Preview Content\"";
+				DEVELOPMENT_TEAM = B995323AAF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -435,6 +580,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -459,6 +605,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"InventoryApp/Preview Content\"";
+				DEVELOPMENT_TEAM = B995323AAF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -471,6 +618,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -612,6 +760,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BE9386B329993EE70084A4D3 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BE9386B429993EE70084A4D3 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE9386B329993EE70084A4D3 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		BEB0680A2995CAD700958EEA /* InventoryApp.xcdatamodeld */ = {

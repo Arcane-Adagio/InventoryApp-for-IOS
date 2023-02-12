@@ -15,17 +15,17 @@ struct CreateAccountView: View {
     let labelFontSize: CGFloat = 14
     let rowBottomSpacing: CGFloat = 10
     let rowHorizontalSpacing: CGFloat = 20
-    
+
     struct GenericTextView: View {
         @State var hint: String
         @Binding var userInput: String
-        
+
         var body: some View {
             VStack {
                 TextField(hint, text: $userInput)
                     .textFieldStyle(.plain)
                     .foregroundColor(.white)
-                    .tint(dark_theme_purple)
+                    .tint(darkThemePurple)
                     .textFieldStyle(.roundedBorder)
                     .font(Font.system(size: 14, design: .default))
                     .padding(.leading, 2)
@@ -37,11 +37,11 @@ struct CreateAccountView: View {
             .padding(.bottom, 5)
         }
     }
-    
+
     //                Text("Create Account")
     //                    .font(.system(size: 36, weight: .bold, design: .monospaced))
     //                    .padding(.top, 30)
-    
+
     var body: some View {
             ZStack {
                 BackgroundView()
@@ -103,9 +103,9 @@ struct CreateAccountView: View {
                 .navigationTitle("Create Account")
             }
     }
-    
+
     func createAccount() {
-        
+
     }
 }
 

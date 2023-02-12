@@ -15,7 +15,7 @@ struct ProfileInfoCard: View {
         .frame(height: 250)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(purple_200, lineWidth: 3)
+                .stroke(purple200, lineWidth: 3)
 
         )
         .shadow(radius: 3)

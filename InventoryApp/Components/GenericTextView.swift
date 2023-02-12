@@ -16,7 +16,7 @@ struct GenericTextView: View {
             TextField(hint, text: $userInput)
                 .textFieldStyle(.plain)
                 .foregroundColor(.white)
-                .tint(dark_theme_purple)
+                .tint(darkThemePurple)
                 .textFieldStyle(.roundedBorder)
                 .font(Font.system(size: 14, design: .default))
                 .padding(.leading, 2)

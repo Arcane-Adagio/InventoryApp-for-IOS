@@ -9,26 +9,25 @@ import Foundation
 import SwiftUI
 
 struct GenericPopUP: View {
-    var PopUpMessage: String
-    
+    var popUpMessage: String
+
     init(msg: String) {
-        PopUpMessage = msg
+        popUpMessage = msg
     }
-    
+
     var body: some View {
         ZStack {
             Rectangle()
                 .cornerRadius(25)
-                .foregroundColor(purple_200) // TODO: replace with actual color
+                .foregroundColor(purple200) // TODO: replace with actual color
             // TODO: add lottie file
-            Text(PopUpMessage)
-                
+            Text(popUpMessage)
         }
         .frame(width: 300, height: 100)
     }
 }
 
-struct pGroupDeleted_Previews: PreviewProvider {
+struct GenericPopUp_Previews: PreviewProvider {
     static var previews: some View {
         GenericPopUP(msg: "Group no longer exists")
     }

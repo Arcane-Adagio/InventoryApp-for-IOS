@@ -98,6 +98,8 @@ struct CreateAccountView: View {
                     // Button
                     GenericButton(txt: "Create",
                                   action: createAccount)
+                    .disabled(!isValidEmail(email) || name.count < 3 ||
+                              password != passwordAgain || password.count < 4)
                     .padding(.vertical, 50)
                 }
                 .navigationTitle("Create Account")
@@ -105,7 +107,12 @@ struct CreateAccountView: View {
     }
 
     func createAccount() {
-
+        if !Reachability.isConnectedToNetwork() {
+            // TODO: Show popup
+            print("Not connected to the internet")
+            return
+        }
+        // do something
     }
 }
 

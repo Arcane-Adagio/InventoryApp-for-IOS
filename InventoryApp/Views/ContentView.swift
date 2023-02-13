@@ -5,8 +5,8 @@
 //  Created by Patrick Coleman on 2/9/23.
 //
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -21,7 +21,7 @@ struct ContentView: View {
             ZStack {
                 BackgroundView()
                 TabView {
-                    BackgroundView()
+                    OfflineInventoryView()
                         .tabItem {
                             Image(systemName: "wifi.slash")
                             Text("Offline")
@@ -33,7 +33,6 @@ struct ContentView: View {
                         }
                 }
                 .tint(.purple)
-                
             }
 //            .toolbar {
 //                ToolbarItem(placement: .navigationBarLeading) {
@@ -50,17 +49,17 @@ struct ContentView: View {
 //                }
 //            }
     }
-    
+
     func showOptions() {
         showMoreOptions.toggle()
     }
-    
+
     var optionsOverlay: some View {
         List {
-            
+            // asd
         }
     }
-    
+
     var oldBody: some View {
         NavigationView {
             ZStack {

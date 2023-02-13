@@ -68,7 +68,12 @@ struct LoginView: View {
                     Spacer()
                     // Login Button
                         Button {
-                            login()
+                            if Reachability.isConnectedToNetwork() {
+                                login()
+                            } else {
+                                // TODO: Show popup
+                                print("Not connected to the internet")
+                            }
                         } label: {
                             Text("Login")
                                 .foregroundColor(isValid

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ForgotPasswordView: View {
     @State var email = ""
-    
+
     var body: some View {
         ZStack {
             BackgroundView()
@@ -38,13 +38,19 @@ struct ForgotPasswordView: View {
                 // Button
                 GenericButton(txt: "Send Reset Email", action: resetPassword)
                     .padding(.bottom, 90)
+                    .disabled(!isValidEmail(email))
             }
         }
         .navigationTitle("Reset Password")
     }
-    
+
     func resetPassword() {
-        
+        if !Reachability.isConnectedToNetwork() {
+            // TODO: Show popup
+            print("Not connected to the internet")
+            return
+        }
+        // Do Something
     }
 }
 

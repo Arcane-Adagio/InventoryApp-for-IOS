@@ -10,7 +10,7 @@ import SwiftUI
 struct GenericButton: View {
     var txt: String
     var action: () -> Void
-    
+
     var body: some View {
         Button(txt) {
             action()
@@ -24,7 +24,7 @@ struct GenericButton: View {
 struct GenericButtonOutline: View {
     var txt: String
     var action: () -> Void
-    
+
     var body: some View {
         Button(txt) {
             action()
@@ -39,6 +39,33 @@ struct GenericButtonOutline: View {
     }
 }
 
+struct ConditionalButton: View {
+    var txt: String
+    @Binding var isActive: Bool
+    var action: () -> Void
+    let enabledRadius: CGFloat = 7
+    let disabledRadius: CGFloat = 10
+
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            Text(txt)
+                .foregroundColor(isActive ? .white : .white.opacity(0.6))
+                .padding(.horizontal)
+                .padding(.vertical, 5)
+                .overlay(
+                    RoundedRectangle(cornerRadius: isActive ? enabledRadius : disabledRadius)
+                        .stroke()
+                )
+                .background(secondaryLightColor)
+        }
+        .cornerRadius(isActive ? enabledRadius : disabledRadius)
+        .tint(secondaryLightColor)
+        .shadow(radius: 3)
+    }
+}
+
 struct GenericButton_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
@@ -46,6 +73,9 @@ struct GenericButton_Previews: PreviewProvider {
                 // Do something
             }
             GenericButtonOutline(txt: "Close") {
+                // Do something
+            }
+            ConditionalButton(txt: "Login", isActive: .constant(false)) {
                 // Do something
             }
         }

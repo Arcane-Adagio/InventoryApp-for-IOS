@@ -41,6 +41,7 @@
 		BEB0683B2995D3F500958EEA /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0683A2995D3F500958EEA /* BackgroundView.swift */; };
 		BEB0683E2995D55500958EEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0683D2995D55500958EEA /* Colors.swift */; };
 		BEB068412995D88D00958EEA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068402995D88D00958EEA /* Strings.swift */; };
+		BED254C22999E36900DC7093 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C12999E36900DC7093 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		BEB0683A2995D3F500958EEA /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BEB0683D2995D55500958EEA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BEB068402995D88D00958EEA /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		BED254C12999E36900DC7093 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = InventoryApp/Components/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 		BEB068382995D27600958EEA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BED254C12999E36900DC7093 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */,
 				BE9386D129995A250084A4D3 /* LoginView.swift in Sources */,
 				BE9386B729993FCA0084A4D3 /* LottieView.swift in Sources */,
+				BED254C22999E36900DC7093 /* LoginViewModel.swift in Sources */,
 				BEB0680E2995CAD700958EEA /* ContentView.swift in Sources */,
 				BEB068092995CAD700958EEA /* Persistence.swift in Sources */,
 				BE9386AC299868AC0084A4D3 /* GenericButton.swift in Sources */,

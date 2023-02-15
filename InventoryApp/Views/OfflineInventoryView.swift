@@ -12,10 +12,15 @@ struct OfflineInventoryView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \CDInventory.id, ascending: true)],
         animation: .default)
+//
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \CDInventory.name, ascending: true)],
+//        animation: .default)
 
-    private var items: FetchedResults<Item>
+//    private var items: FetchedResults<Item>
+    private var items2: FetchedResults<CDInventory>
 
     var floatingActionButton: some View {
         Button {
@@ -56,12 +61,12 @@ struct OfflineInventoryView: View {
             ZStack {
                 BackgroundView()
                 HStack {
-                    if items.isEmpty {
+                    if items2.isEmpty {
                         emptyInventoryView
                     } else {
                         List {
-                            ForEach(items) { item in
-                                let num: Int? = items.firstIndex(of: item)
+                            ForEach(items2) { item in
+                                let num: Int? = items2.firstIndex(of: item)
                                 NavigationLink {
                                     BackgroundView()
                                 } label: {
@@ -117,8 +122,9 @@ struct OfflineInventoryView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = CDInventory(context: viewContext)
+            newItem.name = "placerholder"
+            newItem.id = UUID()
 
             do {
                 try viewContext.save()
@@ -127,14 +133,14 @@ struct OfflineInventoryView: View {
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
     //                let nsError = error as NSError
     //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                print("debug: no")
             }
         }
     }
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            offsets.map { items2[$0] }.forEach(viewContext.delete)
             do {
                 try viewContext.save()
             } catch {
@@ -145,7 +151,6 @@ struct OfflineInventoryView: View {
             }
         }
     }
-
     private let itemFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short

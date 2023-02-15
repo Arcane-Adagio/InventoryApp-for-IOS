@@ -190,10 +190,8 @@
 				BEB068392995D28100958EEA /* Views */,
 				BEB068382995D27600958EEA /* ViewModels */,
 				BEB068062995CAD700958EEA /* InventoryAppApp.swift */,
-				BEB068082995CAD700958EEA /* Persistence.swift */,
 				BEB0680F2995CAD900958EEA /* Assets.xcassets */,
 				BEB068112995CAD900958EEA /* InventoryApp.entitlements */,
-				BEB0680A2995CAD700958EEA /* InventoryApp.xcdatamodeld */,
 				BEB068122995CAD900958EEA /* Preview Content */,
 			);
 			path = InventoryApp;
@@ -273,6 +271,8 @@
 		BED254FD299C882100DC7093 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				BEB0680A2995CAD700958EEA /* InventoryApp.xcdatamodeld */,
+				BEB068082995CAD700958EEA /* Persistence.swift */,
 				BED254FF299C884900DC7093 /* CDInventoryItem */,
 				BED254FE299C883B00DC7093 /* CDInventory */,
 			);

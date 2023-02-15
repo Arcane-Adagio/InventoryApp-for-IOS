@@ -45,6 +45,10 @@
 		BED254C6299AFB7600DC7093 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C5299AFB7600DC7093 /* Reachability.swift */; };
 		BED254C8299AFEAB00DC7093 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C7299AFEAB00DC7093 /* InputValidator.swift */; };
 		BED254CA299B00A500DC7093 /* OfflineInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C9299B00A500DC7093 /* OfflineInventoryView.swift */; };
+		BED254F9299C870100DC7093 /* CDInventory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254F5299C870100DC7093 /* CDInventory+CoreDataClass.swift */; };
+		BED254FA299C870100DC7093 /* CDInventory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254F6299C870100DC7093 /* CDInventory+CoreDataProperties.swift */; };
+		BED254FB299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254F7299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift */; };
+		BED254FC299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254F8299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +110,10 @@
 		BED254C5299AFB7600DC7093 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		BED254C7299AFEAB00DC7093 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		BED254C9299B00A500DC7093 /* OfflineInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineInventoryView.swift; sourceTree = "<group>"; };
+		BED254F5299C870100DC7093 /* CDInventory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDInventory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BED254F6299C870100DC7093 /* CDInventory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDInventory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BED254F7299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDInventoryItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BED254F8299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDInventoryItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +184,7 @@
 		BEB068052995CAD700958EEA /* InventoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				BED254FD299C882100DC7093 /* Core Data */,
 				BEB0683F2995D85D00958EEA /* Resources */,
 				BEB0683C2995D53E00958EEA /* Components */,
 				BEB068392995D28100958EEA /* Views */,
@@ -259,6 +268,33 @@
 				BED254C5299AFB7600DC7093 /* Reachability.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BED254FD299C882100DC7093 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				BED254FF299C884900DC7093 /* CDInventoryItem */,
+				BED254FE299C883B00DC7093 /* CDInventory */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		BED254FE299C883B00DC7093 /* CDInventory */ = {
+			isa = PBXGroup;
+			children = (
+				BED254F6299C870100DC7093 /* CDInventory+CoreDataProperties.swift */,
+				BED254F5299C870100DC7093 /* CDInventory+CoreDataClass.swift */,
+			);
+			path = CDInventory;
+			sourceTree = "<group>";
+		};
+		BED254FF299C884900DC7093 /* CDInventoryItem */ = {
+			isa = PBXGroup;
+			children = (
+				BED254F7299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift */,
+				BED254F8299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift */,
+			);
+			path = CDInventoryItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE9386B029986CB10084A4D3 /* CreateAccountView.swift in Sources */,
+				BED254F9299C870100DC7093 /* CDInventory+CoreDataClass.swift in Sources */,
 				BEB0683B2995D3F500958EEA /* BackgroundView.swift in Sources */,
 				BE9386AA299864770084A4D3 /* GenericPopUp.swift in Sources */,
 				BEB0680C2995CAD700958EEA /* InventoryApp.xcdatamodeld in Sources */,
@@ -439,6 +476,7 @@
 				BEB0683E2995D55500958EEA /* Colors.swift in Sources */,
 				BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */,
 				BED254C8299AFEAB00DC7093 /* InputValidator.swift in Sources */,
+				BED254FC299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift in Sources */,
 				BE9386D129995A250084A4D3 /* LoginView.swift in Sources */,
 				BE9386B729993FCA0084A4D3 /* LottieView.swift in Sources */,
 				BED254C22999E36900DC7093 /* LoginViewModel.swift in Sources */,
@@ -449,7 +487,9 @@
 				BED254C6299AFB7600DC7093 /* Reachability.swift in Sources */,
 				BE9386DD299964C50084A4D3 /* GenericTextView.swift in Sources */,
 				BE9386DB2999645C0084A4D3 /* ForgotPasswordView.swift in Sources */,
+				BED254FB299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift in Sources */,
 				BE9386B2299875110084A4D3 /* ProfileInfoCard.swift in Sources */,
+				BED254FA299C870100DC7093 /* CDInventory+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

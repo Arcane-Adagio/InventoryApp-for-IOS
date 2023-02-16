@@ -49,6 +49,8 @@
 		BED254FA299C870100DC7093 /* CDInventory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254F6299C870100DC7093 /* CDInventory+CoreDataProperties.swift */; };
 		BED254FB299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254F7299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift */; };
 		BED254FC299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254F8299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift */; };
+		BED25501299DC25100DC7093 /* OfflineItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED25500299DC25100DC7093 /* OfflineItemView.swift */; };
+		BED25503299DC26100DC7093 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED25502299DC26100DC7093 /* InventoryItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		BED254F6299C870100DC7093 /* CDInventory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDInventory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BED254F7299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDInventoryItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BED254F8299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDInventoryItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BED25500299DC25100DC7093 /* OfflineItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineItemView.swift; sourceTree = "<group>"; };
+		BED25502299DC26100DC7093 /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +244,8 @@
 				BE9386D029995A250084A4D3 /* LoginView.swift */,
 				BE9386DA2999645C0084A4D3 /* ForgotPasswordView.swift */,
 				BED254C9299B00A500DC7093 /* OfflineInventoryView.swift */,
+				BED25500299DC25100DC7093 /* OfflineItemView.swift */,
+				BED25502299DC26100DC7093 /* InventoryItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -475,6 +481,8 @@
 				BEB068072995CAD700958EEA /* InventoryAppApp.swift in Sources */,
 				BEB0683E2995D55500958EEA /* Colors.swift in Sources */,
 				BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */,
+				BED25503299DC26100DC7093 /* InventoryItem.swift in Sources */,
+				BED25501299DC25100DC7093 /* OfflineItemView.swift in Sources */,
 				BED254C8299AFEAB00DC7093 /* InputValidator.swift in Sources */,
 				BED254FC299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift in Sources */,
 				BE9386D129995A250084A4D3 /* LoginView.swift in Sources */,

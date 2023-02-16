@@ -77,10 +77,14 @@ struct InputPasswordView: View {
 
 struct GenericTextView_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            GenericTextView(hint: "Username", userInput: .constant(""))
-            InputTextView(hint: "Email", userInput: .constant(""), underlineColor: .constant(Color.white))
-            InputPasswordView(hint: "Password", userInput: .constant("asd"), underlineColor: .constant(Color.white))
+        ZStack {
+            BackgroundView()
+            VStack {
+                GenericTextView(hint: "Username", userInput: .constant(""))
+                InputTextView(hint: "Email", userInput: .constant(""), underlineColor: .constant(Color.white))
+                InputPasswordView(hint: "Password", userInput: .constant("asd"), underlineColor: .constant(Color.white))
+            }
+            .padding()
         }
     }
 }

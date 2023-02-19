@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct GenericPopUP: View {
+struct GenericPopUp: View {
     var popUpMessage: String
 
     init(msg: String) {
@@ -29,6 +29,6 @@ struct GenericPopUP: View {
 
 struct GenericPopUp_Previews: PreviewProvider {
     static var previews: some View {
-        GenericPopUP(msg: "Group no longer exists")
+        GenericPopUp(msg: "Group no longer exists")
     }
 }

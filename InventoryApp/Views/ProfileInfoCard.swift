@@ -16,7 +16,6 @@ struct ProfileInfoCard: View {
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(purple200, lineWidth: 3)
-
         )
         .shadow(radius: 3)
         .padding()

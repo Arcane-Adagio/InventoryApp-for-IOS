@@ -10,6 +10,8 @@ import SwiftUI
 
 struct OfflineInventoryView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State var vehicles: [VehicleItem] = []
+    @State var showTestSheet = false
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \CDInventory.id, ascending: true)],
@@ -24,7 +26,8 @@ struct OfflineInventoryView: View {
 
     var floatingActionButton: some View {
         Button {
-            addItem()
+//            addItem()
+            showTestSheet.toggle()
         } label: {
             Image(systemName: "plus")
                 .foregroundColor(.white)
@@ -118,6 +121,9 @@ struct OfflineInventoryView: View {
             .navigationTitle("Offline Inventories")
         }
         .tint(primaryLightColor)
+        .sheet(isPresented: $showTestSheet) {
+            VehicleCreationView()
+        }
     }
 
     private func addItem() {
@@ -129,8 +135,10 @@ struct OfflineInventoryView: View {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                /* Replace this implementation with code to handle the error appropriately.
+                 fatalError() causes the application to generate a crash log and terminate.
+                 You should not use this function in a shipping application,
+                 although it may be useful during development. */
     //                let nsError = error as NSError
     //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 print("debug: no")
@@ -144,13 +152,16 @@ struct OfflineInventoryView: View {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                /* Replace this implementation with code to handle the error appropriately.
+                 fatalError() causes the application to generate a crash log and terminate.
+                You should not use this function in a shipping application,
+                although it may be useful during development. */
     //                let nsError = error as NSError
     //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
+
     private let itemFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short

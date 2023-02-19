@@ -9,15 +9,15 @@
 import CoreData
 import Foundation
 
-extension CDInventory {
+public extension CDInventory {
     @nonobjc
-    public class func fetchRequest() -> NSFetchRequest<CDInventory> {
+    class func fetchRequest() -> NSFetchRequest<CDInventory> {
         return NSFetchRequest<CDInventory>(entityName: "CDInventory")
     }
 
-    @NSManaged public var id: UUID?
-    @NSManaged public var items: [CDInventoryItem]?
-    @NSManaged public var name: String?
+    @NSManaged var id: UUID?
+    @NSManaged var items: [CDInventoryItem]?
+    @NSManaged var name: String?
 }
 
 extension CDInventory: Identifiable {

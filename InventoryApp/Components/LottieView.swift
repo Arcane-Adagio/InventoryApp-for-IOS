@@ -11,12 +11,12 @@ import UIKit
 
 struct LottieView: UIViewRepresentable {
     typealias UIViewType = UIView
-    
+
     var fileName: String
-    
+
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
         let view = UIView(frame: .zero)
-        
+
         // add animation
         let animationView = LottieAnimationView()
         animationView.animation = LottieAnimation.named(fileName)
@@ -24,17 +24,17 @@ struct LottieView: UIViewRepresentable {
         animationView.loopMode = .loop
         animationView.play()
         view.addSubview(animationView)
-        
+
         // add constraints
         animationView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             animationView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            animationView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
-        
+
         return view
     }
-    
+
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) {
         // do nothing
     }

@@ -76,7 +76,6 @@ struct InputNumberView: View {
     var body: some View {
         VStack {
             TextField(hint, text: $userInput)
-                .multilineTextAlignment(.center)
                 .keyboardType(.numberPad)
                 .textFieldStyle(.plain)
                 .foregroundColor(.white)

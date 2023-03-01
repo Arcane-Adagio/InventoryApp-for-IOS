@@ -38,10 +38,6 @@ struct CreateAccountView: View {
         }
     }
 
-    //                Text("Create Account")
-    //                    .font(.system(size: 36, weight: .bold, design: .monospaced))
-    //                    .padding(.top, 30)
-
     var body: some View {
             ZStack {
                 BackgroundView()

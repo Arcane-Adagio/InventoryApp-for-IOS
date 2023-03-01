@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VehicleDetailView: View {
+    @StateObject var vehicle: VehicleItem
     @State var entryVIN = "JASOIDJAPSODI"
     @State var entryTagEx = "03/24"
     @State var entryColor = "Gold"
@@ -15,6 +16,7 @@ struct VehicleDetailView: View {
     @State var mechanicText = ""
     @State var editMode = false
     let charLengthVIN = 17
+    @Environment(\.dismiss) var dismiss
 
     struct AttributeLabel: View {
         var labelText: String
@@ -31,9 +33,24 @@ struct VehicleDetailView: View {
 
     var body: some View {
         ZStack {
-            primaryDarkColor
+            LinearGradient(gradient:
+                            Gradient(colors: [Color(hex: "7550bc"), Color(hex: "1c067d")]),
+                           startPoint: .topLeading, endPoint: .bottomLeading)
             VStack {
                 HStack {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .tint(.white)
+                    }
+                    .tint(.gray)
+                    Spacer()
+                    Text("\(vehicle.year) \(vehicle.make) \(vehicle.model)")
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
+
                     Spacer()
                     Button {
                         editMode.toggle()
@@ -44,16 +61,17 @@ struct VehicleDetailView: View {
                             .tint(editMode ? primaryLightColor : .white)
                     }
                     .tint(.gray)
-                    .padding()
                 }
+                .padding([.horizontal, .top])
 
+                Color.white
+                    .frame(height: 0.3)
+                    .padding(.horizontal)
+                    .padding(.bottom, 20)
                     VStack {
-                        Text("2006 Honda Pilot")
-                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                            .padding(.bottom)
                         HStack {
                             AttributeLabel("VIN:")
-                            TextField("VIN", text: $entryVIN)
+                            TextField("VIN", text: $vehicle.vin.max(charLengthVIN + 3))
                                 // Only allow textField editing while in Edit Mode
                                 .disabled(!editMode)
                                 // Align the textfield to the right of the view
@@ -61,41 +79,29 @@ struct VehicleDetailView: View {
                                 // set the font to look nice
                                 .font(.system(size: 14, weight: .light, design: .rounded))
                                 // Change color of text if VIN is invalid
-                                .foregroundColor(entryVIN.count <= charLengthVIN + 1 ? .white : .red )
-                                // Set maximum characters as Valid VIN + 3
-                                .onReceive(entryVIN.publisher.collect()) {
-                                    self.entryVIN = String($0.prefix(charLengthVIN + 3))
-                                }
+                                .foregroundColor(vehicle.vin.count <= charLengthVIN + 1 ? .white : .red )
                         }
                         .padding(.horizontal)
                         HStack {
                             AttributeLabel("Tag expiraiton:")
-                            TextField("MM/YY", text: $entryTagEx)
+                            TextField("MM/YY", text: $vehicle.tagExp.max(5))
                                 // Only allow textField editing while in Edit Mode
                                 .disabled(!editMode)
                                 // Align the textfield to the right of the view
                                 .multilineTextAlignment(.trailing)
                                 // set the font to look nice
                                 .font(.system(size: 14, weight: .light, design: .rounded))
-                                // Set maximum characters as 5
-                                .onReceive(entryTagEx.publisher.collect()) {
-                                    self.entryTagEx = String($0.prefix(5))
-                                }
                         }
                         .padding(.horizontal)
                         HStack {
                             AttributeLabel("Color:")
-                            TextField("VIN", text: $entryColor)
+                            TextField("VIN", text: $vehicle.color)
                                 // Only allow textField editing while in Edit Mode
                                 .disabled(!editMode)
                                 // Align the textfield to the right of the view
                                 .multilineTextAlignment(.trailing)
                                 // set the font to look nice
                                 .font(.system(size: 14, weight: .light, design: .rounded))
-                                // Set maximum characters as whatever that isn't egregious
-                                .onReceive(entryColor.publisher.collect()) {
-                                    self.entryColor = String($0.prefix(15))
-                                }
                         }
                         .padding(.horizontal)
                         Spacer()
@@ -105,47 +111,56 @@ struct VehicleDetailView: View {
                                 .font(.system(size: 16, weight: .bold, design: .rounded))
                         }
                         .padding(.leading)
+                        Color.white
+                            .frame(height: 0.3)
+                            .padding(.horizontal)
+                            .padding(.top, 5)
                         ScrollView {
                             VStack {
-                                HStack {
-                                    Text("General:")
-                                        .font(.system(size: 16, weight: .bold, design: .rounded))
-                                    Spacer()
-                                }
-                                .padding(.leading)
-                                TextField(editMode ? "Enter notes here" : "No notes to show",
-                                          text: $notesText, axis: .vertical)
+                                VStack {
+                                    HStack {
+                                        Text("General:")
+                                            .font(.system(size: 16, weight: .bold, design: .rounded))
+                                            .padding(.top)
+                                        Spacer()
+                                    }
+                                    .padding(.leading)
+                                    TextField(editMode ? "Enter notes here" : "No notes to show",
+                                              text: $vehicle.genNotes, axis: .vertical)
                                     .disabled(!editMode)
                                     .font(.system(size: 14, weight: .light, design: .rounded))
                                     .lineLimit(nil)
                                     .padding(.horizontal)
-                            }
-                            .padding(.top)
-                            VStack {
-                                HStack {
-                                    Text("Mechanical notes:")
-                                        .font(.system(size: 16, weight: .bold, design: .rounded))
-                                    Spacer()
                                 }
-                                .padding(.leading)
-                                TextField(editMode ? "Enter notes here" : "Nothing from the mechanic",
-                                          text: $mechanicText, axis: .vertical)
+                                .padding(.bottom)
+                                VStack {
+                                    HStack {
+                                        Text("Mechanical notes:")
+                                            .font(.system(size: 16, weight: .bold, design: .rounded))
+                                        Spacer()
+                                    }
+                                    .padding(.leading)
+                                    TextField(editMode ? "Enter notes here" : "Nothing from the mechanic",
+                                              text: $vehicle.mechNotes, axis: .vertical)
                                     .disabled(!editMode)
                                     .font(.system(size: 14, weight: .light, design: .rounded))
                                     .lineLimit(nil)
                                     .padding(.horizontal)
+                                }
                             }
-                            .padding(.vertical)
                         }
-//                        Spacer()
+                        .frame(height: 250)
+                        Spacer()
                     }
             }
+            .padding(.bottom)
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
 struct VehicleDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleDetailView()
+        VehicleDetailView(vehicle: VehicleItem())
     }
 }

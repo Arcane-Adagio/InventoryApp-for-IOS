@@ -31,6 +31,12 @@ struct PersistenceController {
         return result
     }()
 
+    var viewContext: NSManagedObjectContext {
+        let context = container.viewContext
+        context.mergePolicy = NSMergePolicy(merge: NSMergePolicyType.mergeByPropertyObjectTrumpMergePolicyType)
+        return context
+    }
+
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
@@ -60,4 +66,15 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
+
+    func saveData() {
+        DispatchQueue.main.async {
+            do {
+                try viewContext.save()
+            } catch {
+                print("Error during Core Data save operation.", error.localizedDescription)
+            }
+        }
+    }
+
 }

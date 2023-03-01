@@ -28,20 +28,6 @@ struct ContentView: View {
             }
             .tint(.purple)
         }
-        //            .toolbar {
-        //                ToolbarItem(placement: .navigationBarLeading) {
-        //                    Text("Offline Inventories").font(.headline)
-        //                }
-        //                ToolbarItem {
-        //                    Button(action: showOptions) {
-        //                        Image(systemName: "ellipsis")
-        //                            .rotationEffect(Angle(degrees: 90))
-        //                            .foregroundColor(Color.white)
-        //                            .shadow(radius: 1)
-        //                            .overlay(showMoreOptions ? optionsOverlay: nil)
-        //                    }
-        //                }
-        //            }
     }
 
     func showOptions() {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE1F469B29AEEFC4004F1790 /* oldCodeSavedForLater.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1F469A29AEEFC4004F1790 /* oldCodeSavedForLater.swift */; };
+		BE1F469D29AEF040004F1790 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1F469C29AEF040004F1790 /* Extensions.swift */; };
 		BE9386AA299864770084A4D3 /* GenericPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386A9299864770084A4D3 /* GenericPopUp.swift */; };
 		BE9386AC299868AC0084A4D3 /* GenericButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386AB299868AC0084A4D3 /* GenericButton.swift */; };
 		BE9386B029986CB10084A4D3 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9386AF29986CB10084A4D3 /* CreateAccountView.swift */; };
@@ -57,6 +59,8 @@
 		BED254FB299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254F7299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift */; };
 		BED254FC299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254F8299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift */; };
 		BED25501299DC25100DC7093 /* OfflineItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED25500299DC25100DC7093 /* OfflineItemView.swift */; };
+		BEE678A329A838AE00CFDBA0 /* CDVehicleItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE678A129A838AE00CFDBA0 /* CDVehicleItem+CoreDataClass.swift */; };
+		BEE678A429A838AE00CFDBA0 /* CDVehicleItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE678A229A838AE00CFDBA0 /* CDVehicleItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE1F469A29AEEFC4004F1790 /* oldCodeSavedForLater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oldCodeSavedForLater.swift; sourceTree = "<group>"; };
+		BE1F469C29AEF040004F1790 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BE9386A9299864770084A4D3 /* GenericPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPopUp.swift; sourceTree = "<group>"; };
 		BE9386AB299868AC0084A4D3 /* GenericButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericButton.swift; sourceTree = "<group>"; };
 		BE9386AF29986CB10084A4D3 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 		BED254F7299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDInventoryItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BED254F8299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDInventoryItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BED25500299DC25100DC7093 /* OfflineItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineItemView.swift; sourceTree = "<group>"; };
+		BEE678A129A838AE00CFDBA0 /* CDVehicleItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVehicleItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BEE678A229A838AE00CFDBA0 /* CDVehicleItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVehicleItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +297,8 @@
 				BEB068402995D88D00958EEA /* Strings.swift */,
 				BED254C5299AFB7600DC7093 /* Reachability.swift */,
 				BE9AF4A929A2DC5A0039000D /* Color.swift */,
+				BE1F469A29AEEFC4004F1790 /* oldCodeSavedForLater.swift */,
+				BE1F469C29AEF040004F1790 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -296,6 +306,7 @@
 		BED254FD299C882100DC7093 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				BEE678A629A8392200CFDBA0 /* CDVehicleItem */,
 				BEB0680A2995CAD700958EEA /* InventoryApp.xcdatamodeld */,
 				BED254FF299C884900DC7093 /* CDInventoryItem */,
 				BED254FE299C883B00DC7093 /* CDInventory */,
@@ -319,6 +330,15 @@
 				BED254F8299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift */,
 			);
 			path = CDInventoryItem;
+			sourceTree = "<group>";
+		};
+		BEE678A629A8392200CFDBA0 /* CDVehicleItem */ = {
+			isa = PBXGroup;
+			children = (
+				BEE678A129A838AE00CFDBA0 /* CDVehicleItem+CoreDataClass.swift */,
+				BEE678A229A838AE00CFDBA0 /* CDVehicleItem+CoreDataProperties.swift */,
+			);
+			name = CDVehicleItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,6 +520,7 @@
 				BEB068072995CAD700958EEA /* InventoryAppApp.swift in Sources */,
 				BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */,
 				BED25501299DC25100DC7093 /* OfflineItemView.swift in Sources */,
+				BE1F469B29AEEFC4004F1790 /* oldCodeSavedForLater.swift in Sources */,
 				BED254C8299AFEAB00DC7093 /* InputValidator.swift in Sources */,
 				BE9AF49A29A1A7120039000D /* VehicleDetailView.swift in Sources */,
 				BED254FC299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift in Sources */,
@@ -508,11 +529,14 @@
 				BE9AF4A829A2DBCF0039000D /* PersistenceController.swift in Sources */,
 				BE9386B729993FCA0084A4D3 /* LottieView.swift in Sources */,
 				BE9AF49C29A296610039000D /* VehicleCreationView.swift in Sources */,
+				BE1F469D29AEF040004F1790 /* Extensions.swift in Sources */,
 				BED254C22999E36900DC7093 /* LoginViewModel.swift in Sources */,
+				BEE678A329A838AE00CFDBA0 /* CDVehicleItem+CoreDataClass.swift in Sources */,
 				BE9AF49E29A2D2B00039000D /* VehicleItem.swift in Sources */,
 				BEB0680E2995CAD700958EEA /* ContentView.swift in Sources */,
 				BED254CA299B00A500DC7093 /* OfflineInventoryView.swift in Sources */,
 				BE9386AC299868AC0084A4D3 /* GenericButton.swift in Sources */,
+				BEE678A429A838AE00CFDBA0 /* CDVehicleItem+CoreDataProperties.swift in Sources */,
 				BE9AF4A229A2D4070039000D /* Stack.swift in Sources */,
 				BED254C6299AFB7600DC7093 /* Reachability.swift in Sources */,
 				BE9386DD299964C50084A4D3 /* GenericTextView.swift in Sources */,

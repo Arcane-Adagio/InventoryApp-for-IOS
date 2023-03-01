@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-class VehicleItem: ObservableObject {
+class VehicleItem: ObservableObject, Identifiable {
+    var id: UUID
     @Published var year: String
     @Published var make: String
     @Published var model: String
@@ -19,7 +20,7 @@ class VehicleItem: ObservableObject {
     @Published var mechNotes: String
 
     init(year: String = "2077", make: String = "Ferrari",
-         model: String = "Pilot", vin: String = "SPEEDDELABAMALAND",
+         model: String = "Pilot", vin: String = "SPEEDDELABAMALAND", id: UUID = UUID(),
          tagExp: String = "03/78", color: String = "Ruby Red",
          genNotes: String = "This thing is fast",
          mechNotes: String = "Needs oil change") {
@@ -31,6 +32,7 @@ class VehicleItem: ObservableObject {
         self.color = color
         self.genNotes = genNotes
         self.mechNotes = mechNotes
+        self.id = id
     }
 
     // For nil coalescing
@@ -43,5 +45,12 @@ class VehicleItem: ObservableObject {
         self.color = "Ruby Red"
         self.genNotes = "This thing is fast"
         self.mechNotes = "Needs oil change"
+        self.id = UUID()
+    }
+}
+
+extension VehicleItem: Equatable {
+    static func == (lhs: VehicleItem, rhs: VehicleItem) -> Bool {
+        return lhs.id == rhs.id
     }
 }

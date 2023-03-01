@@ -9,6 +9,9 @@ import SwiftUI
 
 struct VehicleItemView: View {
     @ObservedObject var vehicle: VehicleItem
+    @State var showDetailSheet = false
+    var moreInfo: () -> Void
+
     var body: some View {
         VStack {
             HStack {
@@ -23,31 +26,21 @@ struct VehicleItemView: View {
                 }
                 .padding(.horizontal)
                 Spacer()
-                Button {
-                    //
-                } label: {
-                    Image(systemName: "info.circle")
-                        .resizable()
-                        .frame(width: 18, height: 18)
-                        .padding(.trailing, 15)
-                        .padding(.leading, 10)
-                }
-                .foregroundColor(.white)
+                Image(systemName: "info.circle")
+                    .resizable()
+                    .frame(width: 18, height: 18)
+                    .padding(.trailing, 15)
+                    .padding(.leading, 10)
+                    .foregroundColor(.white)
+                    .onTapGesture {
+                        showDetailSheet.toggle()
+                    }
             }
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke()
-        )
-        .padding(
-            EdgeInsets(
-                top: 2,
-                leading: 2,
-                bottom: 2,
-                trailing: 2
-            )
-        )
-        .padding(.horizontal, 15)
+        .sheet(isPresented: $showDetailSheet) {
+            VehicleDetailView(vehicle: vehicle)
+                .presentationDetents([.fraction(0.7)])
+        }
     }
 }
 
@@ -55,7 +48,9 @@ struct VehicleItemView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundView()
-            VehicleItemView(vehicle: VehicleItem())
+            VehicleItemView(vehicle: VehicleItem()) {
+                // 
+            }
         }
     }
 }

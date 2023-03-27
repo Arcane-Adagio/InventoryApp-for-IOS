@@ -17,7 +17,8 @@ struct VehicleCreationView: View {
     @State var notesText = ""
     @State var mechanicText = ""
     @State var prompt: Fragments = .initial
-    @Binding var vehicleList: [VehicleItem]
+    var onSubmit: (VehicleItem) -> Void
+//    @Binding var vehicleList: [VehicleItem]
     @Environment(\.dismiss) var dismiss
 
     @State var fragmentStack = Stack<Fragments>()
@@ -33,8 +34,8 @@ struct VehicleCreationView: View {
         && !entryColor.isEmpty
     }
 
-    init(_ vehicleList: Binding<[VehicleItem]>) {
-        self._vehicleList = vehicleList
+    init(_ submittionCallback: @escaping (VehicleItem) -> Void) {
+        self.onSubmit = submittionCallback
         fragmentStack.push(.initial)
     }
 
@@ -54,7 +55,7 @@ struct VehicleCreationView: View {
     }
 
     func submitBtnBehavior() {
-        vehicleList.append(
+        onSubmit(
             VehicleItem(year: entryYear,
                         make: entryMake,
                         model: entryModel,
@@ -180,6 +181,8 @@ struct VehicleCreationView: View {
 
 struct VehicleCreationView_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleCreationView(.constant([VehicleItem(), VehicleItem()]))
+        VehicleCreationView { _ in
+            // submittion callback
+        }
     }
 }

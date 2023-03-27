@@ -13,6 +13,7 @@ struct LoginView: View {
     @State var password = ""
     @State var passwordAgain = ""
     @State var textViewColor = Color.white
+    @State var viewIsShowing = false
     let labelFontSize: CGFloat = 14
     let rowBottomSpacing: CGFloat = 10
     let rowHorizontalSpacing: CGFloat = 20
@@ -106,7 +107,11 @@ struct LoginView: View {
                     .padding(.vertical, 30)
                 }
             }
+            .onAppear {
+                viewIsShowing.toggle()
+            }
         }
+        .alert("Coming Soon", isPresented: $viewIsShowing, actions: {})
         .tint(primaryLightColor)
     }
 

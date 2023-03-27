@@ -37,9 +37,9 @@ struct VehicleItemView: View {
                     }
             }
         }
-        .sheet(isPresented: $showDetailSheet) {
+        .fullScreenCover(isPresented: $showDetailSheet) {
             VehicleDetailView(vehicle: vehicle)
-                .presentationDetents([.fraction(0.7)])
+//                .presentationDetents([.fraction(0.7)])
         }
     }
 }

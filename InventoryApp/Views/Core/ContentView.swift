@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var showMoreOptions = false
+    @State var showingSplash = true
 
     var body: some View {
         ZStack {
@@ -27,6 +28,16 @@ struct ContentView: View {
                     }
             }
             .tint(.purple)
+            if showingSplash {
+                SplashScreen()
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                withAnimation(.easeOut(duration: 5)) {
+                    showingSplash = false
+                }
+            }
         }
     }
 

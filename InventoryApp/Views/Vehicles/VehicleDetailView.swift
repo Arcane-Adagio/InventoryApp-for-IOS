@@ -50,7 +50,7 @@ struct VehicleDetailView: View {
                     Spacer()
                     Text("\(vehicle.year) \(vehicle.make) \(vehicle.model)")
                         .font(.system(size: 20, weight: .bold, design: .rounded))
-
+                        .multilineTextAlignment(.center)
                     Spacer()
                     Button {
                         editMode.toggle()
@@ -153,9 +153,11 @@ struct VehicleDetailView: View {
                         Spacer()
                     }
             }
-            .padding(.bottom)
+            .padding(.vertical)
+            .padding(.top, 20)
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .edgesIgnoringSafeArea(.all)
+        .navigationBarHidden(true)
     }
 }
 

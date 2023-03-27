@@ -50,6 +50,10 @@
 		BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068362995D0A000958EEA /* GlobalConstants.swift */; };
 		BEB0683B2995D3F500958EEA /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0683A2995D3F500958EEA /* BackgroundView.swift */; };
 		BEB068412995D88D00958EEA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068402995D88D00958EEA /* Strings.swift */; };
+		BEC52B4D29D224A60061B0D4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC52B4C29D224A60061B0D4 /* Launch Screen.storyboard */; };
+		BEC52B4F29D23ADE0061B0D4 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC52B4E29D23ADE0061B0D4 /* SplashScreen.swift */; };
+		BEC52B5429D247E70061B0D4 /* 9601-sound-wave-motion.json in Resources */ = {isa = PBXBuildFile; fileRef = BEC52B5329D247E70061B0D4 /* 9601-sound-wave-motion.json */; };
+		BEC52B5629D24B6B0061B0D4 /* take-note.json in Resources */ = {isa = PBXBuildFile; fileRef = BEC52B5529D24B6A0061B0D4 /* take-note.json */; };
 		BED254C22999E36900DC7093 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C12999E36900DC7093 /* LoginViewModel.swift */; };
 		BED254C6299AFB7600DC7093 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C5299AFB7600DC7093 /* Reachability.swift */; };
 		BED254C8299AFEAB00DC7093 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C7299AFEAB00DC7093 /* InputValidator.swift */; };
@@ -127,6 +131,10 @@
 		BEB068362995D0A000958EEA /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		BEB0683A2995D3F500958EEA /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BEB068402995D88D00958EEA /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		BEC52B4C29D224A60061B0D4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		BEC52B4E29D23ADE0061B0D4 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		BEC52B5329D247E70061B0D4 /* 9601-sound-wave-motion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9601-sound-wave-motion.json"; sourceTree = "<group>"; };
+		BEC52B5529D24B6A0061B0D4 /* take-note.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "take-note.json"; sourceTree = "<group>"; };
 		BED254C12999E36900DC7093 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = InventoryApp/Components/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
 		BED254C5299AFB7600DC7093 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		BED254C7299AFEAB00DC7093 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
@@ -169,6 +177,8 @@
 		BE9386B8299943500084A4D3 /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				BEC52B5529D24B6A0061B0D4 /* take-note.json */,
+				BEC52B5329D247E70061B0D4 /* 9601-sound-wave-motion.json */,
 				BE9386BE299947D70084A4D3 /* anim_float.json */,
 				BE9386BA299945260084A4D3 /* CubeFunAnim.json */,
 				BE9386C0299947EB0084A4D3 /* bus.json */,
@@ -217,6 +227,7 @@
 				BEB0680F2995CAD900958EEA /* Assets.xcassets */,
 				BEB068112995CAD900958EEA /* InventoryApp.entitlements */,
 				BEB068122995CAD900958EEA /* Preview Content */,
+				BEC52B4C29D224A60061B0D4 /* Launch Screen.storyboard */,
 			);
 			path = InventoryApp;
 			sourceTree = "<group>";
@@ -257,18 +268,13 @@
 		BEB068392995D28100958EEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BEB0680D2995CAD700958EEA /* ContentView.swift */,
-				BEB0683A2995D3F500958EEA /* BackgroundView.swift */,
-				BE9386AF29986CB10084A4D3 /* CreateAccountView.swift */,
+				BEC52B5229D23B360061B0D4 /* Core */,
+				BEC52B5129D23B160061B0D4 /* Vehicles */,
+				BEC52B5029D23AF10061B0D4 /* Online */,
 				BE9386B1299875110084A4D3 /* ProfileInfoCard.swift */,
-				BE9386D029995A250084A4D3 /* LoginView.swift */,
-				BE9386DA2999645C0084A4D3 /* ForgotPasswordView.swift */,
 				BED254C9299B00A500DC7093 /* OfflineInventoryView.swift */,
 				BED25500299DC25100DC7093 /* OfflineItemView.swift */,
-				BE9AF49929A1A7120039000D /* VehicleDetailView.swift */,
-				BE9AF49B29A296610039000D /* VehicleCreationView.swift */,
 				BE9AF4A329A2D4E90039000D /* InventoryItemView.swift */,
-				BE9AF4A529A2D83D0039000D /* VehicleItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,9 +304,39 @@
 				BED254C5299AFB7600DC7093 /* Reachability.swift */,
 				BE9AF4A929A2DC5A0039000D /* Color.swift */,
 				BE1F469A29AEEFC4004F1790 /* oldCodeSavedForLater.swift */,
+				BEB0683A2995D3F500958EEA /* BackgroundView.swift */,
 				BE1F469C29AEF040004F1790 /* Extensions.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BEC52B5029D23AF10061B0D4 /* Online */ = {
+			isa = PBXGroup;
+			children = (
+				BE9386D029995A250084A4D3 /* LoginView.swift */,
+				BE9386AF29986CB10084A4D3 /* CreateAccountView.swift */,
+				BE9386DA2999645C0084A4D3 /* ForgotPasswordView.swift */,
+			);
+			path = Online;
+			sourceTree = "<group>";
+		};
+		BEC52B5129D23B160061B0D4 /* Vehicles */ = {
+			isa = PBXGroup;
+			children = (
+				BE9AF4A529A2D83D0039000D /* VehicleItemView.swift */,
+				BE9AF49B29A296610039000D /* VehicleCreationView.swift */,
+				BE9AF49929A1A7120039000D /* VehicleDetailView.swift */,
+			);
+			path = Vehicles;
+			sourceTree = "<group>";
+		};
+		BEC52B5229D23B360061B0D4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BEC52B4E29D23ADE0061B0D4 /* SplashScreen.swift */,
+				BEB0680D2995CAD700958EEA /* ContentView.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		BED254FD299C882100DC7093 /* Core Data */ = {
@@ -461,8 +497,11 @@
 				BE9386C3299947F20084A4D3 /* cloud.json in Resources */,
 				BE9386CF299948330084A4D3 /* rover.json in Resources */,
 				BE9386CB2999480D0084A4D3 /* note_guy.json in Resources */,
+				BEC52B4D29D224A60061B0D4 /* Launch Screen.storyboard in Resources */,
+				BEC52B5629D24B6B0061B0D4 /* take-note.json in Resources */,
 				BE9386C1299947EB0084A4D3 /* bus.json in Resources */,
 				BEB068142995CAD900958EEA /* Preview Assets.xcassets in Resources */,
+				BEC52B5429D247E70061B0D4 /* 9601-sound-wave-motion.json in Resources */,
 				BEB068102995CAD900958EEA /* Assets.xcassets in Resources */,
 				BE9386BF299947D70084A4D3 /* anim_float.json in Resources */,
 				BE9386D529995F0D0084A4D3 /* welcome1.json in Resources */,
@@ -534,6 +573,7 @@
 				BEE678A329A838AE00CFDBA0 /* CDVehicleItem+CoreDataClass.swift in Sources */,
 				BE9AF49E29A2D2B00039000D /* VehicleItem.swift in Sources */,
 				BEB0680E2995CAD700958EEA /* ContentView.swift in Sources */,
+				BEC52B4F29D23ADE0061B0D4 /* SplashScreen.swift in Sources */,
 				BED254CA299B00A500DC7093 /* OfflineInventoryView.swift in Sources */,
 				BE9386AC299868AC0084A4D3 /* GenericButton.swift in Sources */,
 				BEE678A429A838AE00CFDBA0 /* CDVehicleItem+CoreDataProperties.swift in Sources */,
@@ -698,35 +738,39 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = InventoryApp/InventoryApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"InventoryApp/Preview Content\"";
 				DEVELOPMENT_TEAM = B995323AAF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = Bama.InventoryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -737,35 +781,39 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = InventoryApp/InventoryApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"InventoryApp/Preview Content\"";
 				DEVELOPMENT_TEAM = B995323AAF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = Bama.InventoryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

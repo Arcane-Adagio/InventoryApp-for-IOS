@@ -54,6 +54,9 @@
 		BEC52B4F29D23ADE0061B0D4 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC52B4E29D23ADE0061B0D4 /* SplashScreen.swift */; };
 		BEC52B5429D247E70061B0D4 /* 9601-sound-wave-motion.json in Resources */ = {isa = PBXBuildFile; fileRef = BEC52B5329D247E70061B0D4 /* 9601-sound-wave-motion.json */; };
 		BEC52B5629D24B6B0061B0D4 /* take-note.json in Resources */ = {isa = PBXBuildFile; fileRef = BEC52B5529D24B6A0061B0D4 /* take-note.json */; };
+		BEC52B5829D325060061B0D4 /* VehicleInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC52B5729D325060061B0D4 /* VehicleInventoryView.swift */; };
+		BEC52B5C29D325750061B0D4 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC52B5B29D325750061B0D4 /* FloatingActionButton.swift */; };
+		BEC52B5E29D326C30061B0D4 /* EmptyInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC52B5D29D326C30061B0D4 /* EmptyInventoryView.swift */; };
 		BED254C22999E36900DC7093 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C12999E36900DC7093 /* LoginViewModel.swift */; };
 		BED254C6299AFB7600DC7093 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C5299AFB7600DC7093 /* Reachability.swift */; };
 		BED254C8299AFEAB00DC7093 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED254C7299AFEAB00DC7093 /* InputValidator.swift */; };
@@ -135,6 +138,9 @@
 		BEC52B4E29D23ADE0061B0D4 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		BEC52B5329D247E70061B0D4 /* 9601-sound-wave-motion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9601-sound-wave-motion.json"; sourceTree = "<group>"; };
 		BEC52B5529D24B6A0061B0D4 /* take-note.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "take-note.json"; sourceTree = "<group>"; };
+		BEC52B5729D325060061B0D4 /* VehicleInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleInventoryView.swift; sourceTree = "<group>"; };
+		BEC52B5B29D325750061B0D4 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
+		BEC52B5D29D326C30061B0D4 /* EmptyInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyInventoryView.swift; sourceTree = "<group>"; };
 		BED254C12999E36900DC7093 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = InventoryApp/Components/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
 		BED254C5299AFB7600DC7093 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		BED254C7299AFEAB00DC7093 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
@@ -268,6 +274,7 @@
 		BEB068392995D28100958EEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BEC52B5A29D325600061B0D4 /* Components */,
 				BEC52B5229D23B360061B0D4 /* Core */,
 				BEC52B5129D23B160061B0D4 /* Vehicles */,
 				BEC52B5029D23AF10061B0D4 /* Online */,
@@ -326,6 +333,7 @@
 				BE9AF4A529A2D83D0039000D /* VehicleItemView.swift */,
 				BE9AF49B29A296610039000D /* VehicleCreationView.swift */,
 				BE9AF49929A1A7120039000D /* VehicleDetailView.swift */,
+				BEC52B5729D325060061B0D4 /* VehicleInventoryView.swift */,
 			);
 			path = Vehicles;
 			sourceTree = "<group>";
@@ -337,6 +345,15 @@
 				BEB0680D2995CAD700958EEA /* ContentView.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		BEC52B5A29D325600061B0D4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BEC52B5B29D325750061B0D4 /* FloatingActionButton.swift */,
+				BEC52B5D29D326C30061B0D4 /* EmptyInventoryView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		BED254FD299C882100DC7093 /* Core Data */ = {
@@ -556,6 +573,7 @@
 				BE9386AA299864770084A4D3 /* GenericPopUp.swift in Sources */,
 				BEB0680C2995CAD700958EEA /* InventoryApp.xcdatamodeld in Sources */,
 				BEB068412995D88D00958EEA /* Strings.swift in Sources */,
+				BEC52B5C29D325750061B0D4 /* FloatingActionButton.swift in Sources */,
 				BEB068072995CAD700958EEA /* InventoryAppApp.swift in Sources */,
 				BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */,
 				BED25501299DC25100DC7093 /* OfflineItemView.swift in Sources */,
@@ -583,6 +601,8 @@
 				BE9AF4A629A2D83D0039000D /* VehicleItemView.swift in Sources */,
 				BE9386DB2999645C0084A4D3 /* ForgotPasswordView.swift in Sources */,
 				BE9AF4A429A2D4E90039000D /* InventoryItemView.swift in Sources */,
+				BEC52B5E29D326C30061B0D4 /* EmptyInventoryView.swift in Sources */,
+				BEC52B5829D325060061B0D4 /* VehicleInventoryView.swift in Sources */,
 				BED254FB299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift in Sources */,
 				BE9386B2299875110084A4D3 /* ProfileInfoCard.swift in Sources */,
 				BED254FA299C870100DC7093 /* CDInventory+CoreDataProperties.swift in Sources */,

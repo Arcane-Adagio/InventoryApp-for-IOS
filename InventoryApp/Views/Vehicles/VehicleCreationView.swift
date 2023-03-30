@@ -136,10 +136,7 @@ struct VehicleCreationView: View {
                                             .font(.system(size: 16, weight: .bold, design: .rounded))
                                         Spacer()
                                     }
-                                    TextField("Enter general notes here",
-                                              text: $notesText, axis: .vertical)
-                                    .font(.system(size: 14, weight: .light, design: .rounded))
-                                    .lineLimit(nil)
+                                    IOS15TextField(editMode: true, text: $notesText)
                                 }
                                 VStack {
                                     HStack {
@@ -147,10 +144,7 @@ struct VehicleCreationView: View {
                                             .font(.system(size: 16, weight: .bold, design: .rounded))
                                         Spacer()
                                     }
-                                    TextField("Enter mechanical notes here",
-                                              text: $mechanicText, axis: .vertical)
-                                    .font(.system(size: 14, weight: .light, design: .rounded))
-                                    .lineLimit(nil)
+                                    IOS15TextField(editMode: true, text: $mechanicText)
                                 }
                                 .padding(.vertical)
                             }

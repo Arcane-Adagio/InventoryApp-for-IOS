@@ -23,6 +23,7 @@ struct VehicleDetailView: View {
 
         init(_ labelText: String) {
             self.labelText = labelText
+            UITextView.appearance().backgroundColor = .clear
         }
 
         var body: some View {
@@ -125,12 +126,7 @@ struct VehicleDetailView: View {
                                         Spacer()
                                     }
                                     .padding(.leading)
-                                    TextField(editMode ? "Enter notes here" : "No notes to show",
-                                              text: $vehicle.genNotes, axis: .vertical)
-                                    .disabled(!editMode)
-                                    .font(.system(size: 14, weight: .light, design: .rounded))
-                                    .lineLimit(nil)
-                                    .padding(.horizontal)
+                                    IOS15TextField(editMode: editMode, text: $vehicle.genNotes)
                                 }
                                 .padding(.bottom)
                                 VStack {
@@ -140,12 +136,7 @@ struct VehicleDetailView: View {
                                         Spacer()
                                     }
                                     .padding(.leading)
-                                    TextField(editMode ? "Enter notes here" : "Nothing from the mechanic",
-                                              text: $vehicle.mechNotes, axis: .vertical)
-                                    .disabled(!editMode)
-                                    .font(.system(size: 14, weight: .light, design: .rounded))
-                                    .lineLimit(nil)
-                                    .padding(.horizontal)
+                                    IOS15TextField(editMode: editMode, text: $vehicle.mechNotes)
                                 }
                             }
                         }
@@ -158,6 +149,31 @@ struct VehicleDetailView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarHidden(true)
+    }
+}
+
+struct IOS15TextField: View {
+    var editMode: Bool
+    @Binding var text: String
+
+    var body: some View {
+        ZStack {
+            TextEditor(text: $text)
+                .disabled(!editMode)
+                .font(.system(size: 14, weight: .light, design: .rounded))
+                .opacity(!editMode ? 0 : 0.1)
+                .lineLimit(nil)
+                .padding(.horizontal)
+            HStack {
+                Text(text)
+                    .font(.system(size: 14, weight: .light, design: .rounded))
+                    .lineLimit(nil)
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal)
+                    .padding(.leading, 5)
+                Spacer()
+            }
+        }
     }
 }
 

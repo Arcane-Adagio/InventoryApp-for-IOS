@@ -51,11 +51,7 @@ struct InventoryItemView: View {
                             .font(.system(size: 10, weight: .light, design: .rounded))
                     }
                     if !note.isEmpty {
-                        TextField("Note", text: $note, axis: .vertical)
-                            .textFieldStyle(.plain)
-                            .textFieldStyle(.roundedBorder)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding(.bottom, 10)
+                        IOS15TextField(editMode: true, text: $note)
                     }
                 }
                 .padding(.leading, itemInfo.checkable ? 0 : 15)

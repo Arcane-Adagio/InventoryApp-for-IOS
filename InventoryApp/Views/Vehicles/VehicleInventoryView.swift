@@ -29,7 +29,7 @@ struct VehicleInventoryView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack {
                 BackgroundView()
                 HStack {
@@ -63,7 +63,7 @@ struct VehicleInventoryView: View {
                             .onDelete(perform: deleteVehicleItem(offsets:))
                         }
                         // Prevents List style from overriding background
-                        .scrollContentBackground(.hidden)
+//                        .scrollContentBackground(.hidden)
                     } else {
                         EmptyInventoryView(text: "No Vehicles to Show")
                     }

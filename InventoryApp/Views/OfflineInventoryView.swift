@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 
 struct OfflineInventoryView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -48,7 +49,7 @@ struct OfflineInventoryView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack {
                 BackgroundView()
                 HStack {
@@ -77,12 +78,15 @@ struct OfflineInventoryView: View {
                                 // Does something important
                                     .listRowSeparator(.hidden)
                                     .listStyle(.plain)
+                                
                             }
                             // List modifier to allow swipe to delete
                             .onDelete(perform: deleteVehicleItem(offsets:))
                         }
                         // Prevents List style from overriding background
-                        .scrollContentBackground(.hidden)
+//                        .scrollContentBackground(.hidden)
+                        .background(.clear)
+//                        .opacity(0.1)
                     }
                 }
                 VStack {

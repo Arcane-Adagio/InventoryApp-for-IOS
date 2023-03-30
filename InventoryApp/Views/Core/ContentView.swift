@@ -7,10 +7,17 @@
 
 import CoreData
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     @State var showMoreOptions = false
     @State var showingSplash = true
+    @State var viewIsShowing = false
+
+    init() {
+        UITextView.appearance().backgroundColor = .clear
+        UITableView.appearance().backgroundColor = .clear
+    }
 
     var body: some View {
         ZStack {
@@ -26,6 +33,9 @@ struct ContentView: View {
                         Image(systemName: "person.3.fill")
                         Text("Online")
                     }
+                    .onAppear {
+                        viewIsShowing.toggle()
+                    }
             }
             .tint(.purple)
             if showingSplash {
@@ -39,6 +49,7 @@ struct ContentView: View {
                 }
             }
         }
+        .alert("Coming Soon", isPresented: $viewIsShowing, actions: {})
     }
 
     func showOptions() {

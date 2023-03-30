@@ -50,6 +50,7 @@
 		BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068362995D0A000958EEA /* GlobalConstants.swift */; };
 		BEB0683B2995D3F500958EEA /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0683A2995D3F500958EEA /* BackgroundView.swift */; };
 		BEB068412995D88D00958EEA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB068402995D88D00958EEA /* Strings.swift */; };
+		BEB3667E29D5E04100C44FBE /* IOS15TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3667D29D5E04100C44FBE /* IOS15TextField.swift */; };
 		BEC52B4D29D224A60061B0D4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC52B4C29D224A60061B0D4 /* Launch Screen.storyboard */; };
 		BEC52B4F29D23ADE0061B0D4 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC52B4E29D23ADE0061B0D4 /* SplashScreen.swift */; };
 		BEC52B5429D247E70061B0D4 /* 9601-sound-wave-motion.json in Resources */ = {isa = PBXBuildFile; fileRef = BEC52B5329D247E70061B0D4 /* 9601-sound-wave-motion.json */; };
@@ -134,6 +135,7 @@
 		BEB068362995D0A000958EEA /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		BEB0683A2995D3F500958EEA /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BEB068402995D88D00958EEA /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		BEB3667D29D5E04100C44FBE /* IOS15TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS15TextField.swift; sourceTree = "<group>"; };
 		BEC52B4C29D224A60061B0D4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BEC52B4E29D23ADE0061B0D4 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		BEC52B5329D247E70061B0D4 /* 9601-sound-wave-motion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9601-sound-wave-motion.json"; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			children = (
 				BEC52B5B29D325750061B0D4 /* FloatingActionButton.swift */,
 				BEC52B5D29D326C30061B0D4 /* EmptyInventoryView.swift */,
+				BEB3667D29D5E04100C44FBE /* IOS15TextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				BED25501299DC25100DC7093 /* OfflineItemView.swift in Sources */,
 				BE1F469B29AEEFC4004F1790 /* oldCodeSavedForLater.swift in Sources */,
 				BED254C8299AFEAB00DC7093 /* InputValidator.swift in Sources */,
+				BEB3667E29D5E04100C44FBE /* IOS15TextField.swift in Sources */,
 				BE9AF49A29A1A7120039000D /* VehicleDetailView.swift in Sources */,
 				BED254FC299C870100DC7093 /* CDInventoryItem+CoreDataProperties.swift in Sources */,
 				BE9386D129995A250084A4D3 /* LoginView.swift in Sources */,

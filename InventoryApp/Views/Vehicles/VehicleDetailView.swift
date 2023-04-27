@@ -16,7 +16,7 @@ struct VehicleDetailView: View {
     @State var selectedYear: Int
     @State var collapse = false
     let charLengthVIN = 17
-    var cardGradient = LinearGradient(gradient: Gradient(colors: [primaryDarkColor, royalPurple]),
+    var cardGradient = LinearGradient(gradient: Gradient(colors: [royalPurpleMonoC, royalPurpleComplA]),
                                       startPoint: .bottomLeading, endPoint: .topTrailing)
     var backgroundColor = LinearGradient(gradient: Gradient(colors: [Color(hex: "7550bc"), Color(hex: "1c067d")]),
                                          startPoint: .topLeading, endPoint: .bottomLeading)
@@ -59,12 +59,12 @@ struct VehicleDetailView: View {
                             Attribute2Panel(_vehicle, editMode, $selectedYear)
                                 .offset(y: -20)
                         }
-                        .shadow(radius: 5)
                         .background(cardGradient)
                         .cornerRadius(10)
                         .padding(.horizontal, 25)
                         .frame(height: 180)
                         .tabViewStyle(PageTabViewStyle())
+                        .shadow(radius: 3)
                         Spacer()
                             .frame(height: 0)
                     }
@@ -129,10 +129,12 @@ struct VehicleDetailView: View {
                         .font(.system(size: 16, weight: .none, design: .rounded))
                         .background(editMode ? editOverlay : nil)
                         .padding(.trailing, 10)
+                        .onChange(of: vehicle.color) { newColor in
+                            self.vehicle.color = String(newColor.prefix(17))
+                        }
                 }
                 .padding(.horizontal)
             }
-//            .background(Color.redC)
         }
     }
 

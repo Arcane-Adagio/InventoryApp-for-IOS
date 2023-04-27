@@ -14,8 +14,12 @@ struct VehicleDetailView: View {
     @State var selectedNote = NoteSection.general
     @State var showingDefaultAttributes = true
     @State var selectedYear: Int
-    @State var collapse = true
+    @State var collapse = false
     let charLengthVIN = 17
+    var cardGradient = LinearGradient(gradient: Gradient(colors: [primaryDarkColor, royalPurple]),
+                                      startPoint: .bottomLeading, endPoint: .topTrailing)
+    var backgroundColor = LinearGradient(gradient: Gradient(colors: [Color(hex: "7550bc"), Color(hex: "1c067d")]),
+                                         startPoint: .topLeading, endPoint: .bottomLeading)
 
     init(vehicle: VehicleItem) {
         self._vehicle = StateObject(wrappedValue: vehicle)
@@ -38,9 +42,8 @@ struct VehicleDetailView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(gradient:
-                            Gradient(colors: [Color(hex: "7550bc"), Color(hex: "1c067d")]),
-                           startPoint: .topLeading, endPoint: .bottomLeading)
+            backgroundColor
+                .edgesIgnoringSafeArea(.all)
             VStack {
                 DetailHeaderView(headerText: "\(vehicle.year) \(vehicle.make) \(vehicle.model)",
                                  $editMode, $showingDefaultAttributes, $collapse)
@@ -48,25 +51,30 @@ struct VehicleDetailView: View {
                     Color.white
                         .frame(height: 0.3)
                         .padding(.horizontal)
-                        .padding(.bottom, 20)
+                        .padding(.bottom, 10)
                     VStack {
-                        if showingDefaultAttributes {
+                        TabView {
                             Attribute1Panel(_vehicle, editMode, $selectedDate)
-                        } else {
+                                .offset(y: -20)
                             Attribute2Panel(_vehicle, editMode, $selectedYear)
+                                .offset(y: -20)
                         }
+                        .shadow(radius: 5)
+                        .background(cardGradient)
+                        .cornerRadius(10)
+                        .padding(.horizontal, 25)
+                        .frame(height: 180)
+                        .tabViewStyle(PageTabViewStyle())
                         Spacer()
-                            .frame(height: 30)
+                            .frame(height: 0)
                     }
                 }
                 VehicleNotesView(_vehicle, editMode, $selectedNote)
-                    .padding(.top, collapse ? -20 : 0)
+                    .padding(.top, collapse ? -20 : -10)
                 Spacer()
             }
-            .padding(.vertical)
-            .padding(.top, 20)
         }
-        .edgesIgnoringSafeArea(.all)
+
         .navigationBarHidden(true)
     }
 
@@ -124,6 +132,7 @@ struct VehicleDetailView: View {
                 }
                 .padding(.horizontal)
             }
+//            .background(Color.redC)
         }
     }
 
@@ -148,24 +157,25 @@ struct VehicleDetailView: View {
                     .padding(.horizontal, 15)
                     .padding(.top, 5)
                 ScrollView {
-                    switch selectedNote {
-                    case NoteSection.mechanical:
-                        TextField(editMode ? "Enter notes here" : "Nothing from the mechanic",
-                                  text: $vehicle.mechNotes, axis: .vertical)
-                        .disabled(!editMode)
-                        .font(.system(size: 14, weight: .light, design: .rounded))
-                        .lineLimit(nil)
-                        .padding(.horizontal)
-                    default:
-                        TextField(editMode ? "Enter notes here" : "No notes to show",
-                                  text: $vehicle.genNotes, axis: .vertical)
-                        .disabled(!editMode)
-                        .font(.system(size: 14, weight: .light, design: .rounded))
-                        .lineLimit(nil)
-                        .padding(.horizontal)
+                    VStack {
+                        switch selectedNote {
+                        case NoteSection.mechanical:
+                            TextField(editMode ? "Enter notes here" : "Nothing from the mechanic",
+                                      text: $vehicle.mechNotes, axis: .vertical)
+                            .disabled(!editMode)
+                            .font(.system(size: 14, weight: .light, design: .rounded))
+                            .lineLimit(nil)
+                            .padding(.horizontal)
+                        default:
+                            TextField(editMode ? "Enter notes here" : "No notes to show",
+                                      text: $vehicle.genNotes, axis: .vertical)
+                            .disabled(!editMode)
+                            .font(.system(size: 14, weight: .light, design: .rounded))
+                            .lineLimit(nil)
+                            .padding(.horizontal)
+                        }
                     }
                 }
-                .frame(height: 250)
             }
             .padding(.horizontal, 10)
         }
@@ -193,34 +203,24 @@ struct VehicleDetailView: View {
                 } label: {
                     Image(systemName: "xmark")
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 15, height: 15)
                         .tint(.white)
                 }
                 .tint(.gray)
                 Spacer()
-                Button {
-                    withAnimation {
-                        showingFirstPanel.toggle()
-                    }
-                } label: {
-                    Text(headerText)
-                        .font(.system(size: 20, weight: .bold, design: .rounded))
-                        .multilineTextAlignment(.center)
-                        .padding(editMode ? 10 : 0)
-                        .background(editMode ? editColor : nil)
-                        .cornerRadius(15)
-                }
-                .foregroundColor(.white)
-                .disabled(!editMode)
-                .tint(.white)
+                Text(headerText)
+                    .font(.system(size: 18, weight: .bold, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
                 Button {
                     withAnimation {
                         collapse.toggle()
                     }
                 } label: {
-                    Image(systemName: collapse ? "chevron.down" : "chevron.up")
+                    Image(systemName: !collapse ? "chevron.down" : "chevron.up")
                         .resizable()
-                        .frame(width: 20, height: 10)
+                        .frame(width: 15, height: 8)
+                        .offset(y: 1)
                         .tint(primaryLightColor)
                 }
                 .tint(.gray)
@@ -230,12 +230,12 @@ struct VehicleDetailView: View {
                 } label: {
                     Image(systemName: editMode ? "pencil.line" : "pencil.slash")
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 18, height: 18)
                         .tint(editMode ? primaryLightColor : .white)
                 }
                 .tint(.gray)
             }
-            .padding([.horizontal, .top])
+            .padding(.horizontal, 30)
         }
     }
 
@@ -253,10 +253,14 @@ struct VehicleDetailView: View {
         var body: some View {
             VStack {
                 MyYearPicker(label: "Year:", date: $selectedYear)
+                    .tint(.white)
+                    .foregroundColor(.white)
+                    .disabled(!editMode)
                     .onChange(of: selectedYear) { newYear in
                         self.vehicle.year = String(newYear)
                     }
                     .font(.system(size: 16, weight: .bold, design: .rounded))
+
                     .padding(.trailing, -10)
                     .padding(.top, -7)
                 HStack {
@@ -290,9 +294,10 @@ private var editOverlay: some View {
     HStack {
         Spacer()
         Color.white
-            .frame(width: 200, height: 35)
+            .frame(width: 200, height: 30)
             .background(.black)
-            .cornerRadius(10)
+            .cornerRadius(7)
+            .shadow(radius: 10)
     }
     .opacity(0.1)
     .offset(x: 10)

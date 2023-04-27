@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VehicleCreationView: View {
-    @State var entryYear = ""
+    @State var entryYear = "2023"
     @State var entryModel = ""
     @State var entryMake = ""
     @State var entryVIN = ""
@@ -17,8 +17,9 @@ struct VehicleCreationView: View {
     @State var notesText = ""
     @State var mechanicText = ""
     @State var prompt: Fragments = .initial
+    @State var selectedDate = Date()
+    @State var selectedYear = 2_023
     var onSubmit: (VehicleItem) -> Void
-//    @Binding var vehicleList: [VehicleItem]
     @Environment(\.dismiss) var dismiss
 
     @State var fragmentStack = Stack<Fragments>()
@@ -96,38 +97,42 @@ struct VehicleCreationView: View {
                             .padding(.bottom, 30)
                         switch prompt {
                         case .initial:
-                            InputNumberView(hint: "Year", userInput: $entryYear)
-                                .multilineTextAlignment(.leading)
-                                .onReceive(entryYear.publisher.collect()) {
-                                    self.entryYear = String($0.prefix(4))
+                            MyYearPicker(label: "Year", date: $selectedYear)
+                                .onChange(of: selectedYear) { newYear in
+                                    self.entryYear = String(newYear)
                                 }
+                                .font(.system(size: 15, weight: .none, design: .rounded))
+                                .padding([.trailing], -10)
+                            MyDatePicker(label: "Tag Expiration", date: $selectedDate) { date in
+                                self.entryTagEx = DateFormatter.formate.string(from: date)
+                            }
+                            .font(.system(size: 14, weight: .none, design: .rounded))
+                            .foregroundColor(.white)
                             InputTextView(hint: "Make", userInput: $entryMake, fontSize: textFieldFontSize)
                                 .onReceive(entryMake.publisher.collect()) {
                                     self.entryMake = String($0.prefix(15))
                                 }
+                                .padding(.top, 5)
                             InputTextView(hint: "Model", userInput: $entryModel, fontSize: textFieldFontSize)
                                 .onReceive(entryModel.publisher.collect()) {
                                     self.entryModel = String($0.prefix(15))
                                 }
+                                .padding(.top, 5)
                             InputTextView(hint: "VIN", userInput: $entryVIN, fontSize: textFieldFontSize)
                                 .textCase(.uppercase)
                                 // Change color of text if VIN is invalid
                                 .foregroundColor(entryVIN.count <= charLengthVIN + 1 ? .white : .red )
                                 // Set maximum characters as Valid VIN + 3
                                 .onReceive(entryVIN.publisher.collect()) {
-                                    self.entryVIN = String($0.prefix(charLengthVIN + 3))
+                                    self.entryVIN = String($0.prefix(charLengthVIN)).uppercased()
                                 }
-                            InputTextView(hint: "Tag Exp in MM/YY format",
-                                          userInput: $entryTagEx, fontSize: textFieldFontSize)
-                                // Set maximum characters as 5
-                                .onReceive(entryTagEx.publisher.collect()) {
-                                    self.entryTagEx = String($0.prefix(5))
-                                }
+                                .padding(.top, 5)
                             InputTextView(hint: "Color", userInput: $entryColor, fontSize: textFieldFontSize)
                                 // Set maximum characters as 5
                                 .onReceive(entryColor.publisher.collect()) {
                                     self.entryColor = String($0.prefix(15))
                                 }
+                                .padding(.top, 5)
                         default:
                             ScrollView {
                                 VStack {

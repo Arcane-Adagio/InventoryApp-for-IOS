@@ -12,6 +12,11 @@ struct ContentView: View {
     @State var showMoreOptions = false
     @State var showingSplash = true
 
+    init() { // for ios15 compatibility
+        UITextView.appearance().backgroundColor = .clear
+        UITableView.appearance().backgroundColor = .clear
+    }
+
     var body: some View {
         ZStack {
             BackgroundView()

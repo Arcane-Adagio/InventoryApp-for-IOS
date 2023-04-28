@@ -94,14 +94,30 @@ extension Color {
 }
 
 func convertColorToString(_ color: Color) -> String {
-    var uic = UIColor(color)
-//    uic.compo
-    color.cgColor?.components
-    return "string"
+    let red: CGFloat = color.colorComponents?.red ?? 0
+    let green: CGFloat = color.colorComponents?.green ?? 0
+    let blue: CGFloat = color.colorComponents?.blue ?? 0
+    let alpha: CGFloat = color.colorComponents?.alpha ?? 0
+    let colorArray = [red, green, blue, alpha]
+    return colorArray.description
 }
 
 func convertStringToColor(_ colorString: String) -> Color {
-    return Color.white
+    var strippedColorString = colorString
+        .replacingOccurrences(of: "[", with: "")
+        .replacingOccurrences(of: "]", with: "")
+    var colorArray = Array(strippedColorString.components(separatedBy: ", "))
+        .map { Double($0) }
+    if colorArray.count != 4 {
+        return Color.white
+    } else {
+        let reconstructedColor = Color(.sRGB,
+                                       red: colorArray[0] ?? 0,
+                                       green: colorArray[1] ?? 0,
+                                       blue: colorArray[2] ?? 0,
+                                       opacity: colorArray[3] ?? 0)
+        return reconstructedColor
+    }
 }
 
 let testColor = Color(hex: "4e2abb")

@@ -12,21 +12,10 @@ struct VehicleAttributeCardView: View {
     @StateObject var vehicle: VehicleItem
     @Binding var selectedDate: Date
     var editMode: Bool
+
     @Binding var selectedColor: Color
     @Binding var selectedYear: Int
-
-    struct AttributeLabel: View {
-        var labelText: String
-
-        init(_ labelText: String) {
-            self.labelText = labelText
-        }
-
-        var body: some View {
-            Text(labelText)
-                .font(.system(size: 16, weight: .bold, design: .rounded))
-        }
-    }
+    @State var activeTab = 1
 
     init(_ vehicle: StateObject<VehicleItem>, _ editMode: Bool, _ selectedYear: Binding<Int>,
          _ selectedColor: Binding<Color>, _ selectedDate: Binding<Date>) {
@@ -40,11 +29,15 @@ struct VehicleAttributeCardView: View {
     let cardGradient = LinearGradient(gradient: Gradient(colors: [royalPurpleMonoC, royalPurpleComplA]),
                                       startPoint: .bottomLeading, endPoint: .topTrailing)
     var body: some View {
-        TabView {
+        TabView(selection: $activeTab) {
             Attribute1Panel(_vehicle, editMode, $selectedDate, $selectedColor)
                 .offset(y: -20)
+                .tag(1)
+                .disabled(activeTab != 1)
             Attribute2Panel(_vehicle, editMode, $selectedYear)
                 .offset(y: -20)
+                .tag(2)
+                .disabled(activeTab != 2)
         }
         .background(cardGradient)
         .cornerRadius(10)
@@ -52,6 +45,19 @@ struct VehicleAttributeCardView: View {
         .frame(height: 180)
         .tabViewStyle(PageTabViewStyle())
         .shadow(radius: 3)
+    }
+
+    struct AttributeLabel: View {
+        var labelText: String
+
+        init(_ labelText: String) {
+            self.labelText = labelText
+        }
+
+        var body: some View {
+            Text(labelText)
+                .font(.system(size: 16, weight: .bold, design: .rounded))
+        }
     }
 
     struct Attribute1Panel: View {

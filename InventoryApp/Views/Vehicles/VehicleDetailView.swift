@@ -10,7 +10,7 @@ import SwiftUI
 struct VehicleDetailView: View {
     @StateObject var vehicle: VehicleItem
     @State var selectedDate: Date
-    @State var editMode = true
+    @State var editMode = false
     @State var selectedNote = NoteSection.general
     @State var showingDefaultAttributes = true
     @State var selectedColor: Color

@@ -93,6 +93,17 @@ extension Color {
     }
 }
 
+func convertColorToString(_ color: Color) -> String {
+    var uic = UIColor(color)
+//    uic.compo
+    color.cgColor?.components
+    return "string"
+}
+
+func convertStringToColor(_ colorString: String) -> Color {
+    return Color.white
+}
+
 let testColor = Color(hex: "4e2abb")
 let royalPurple = Color(hex: "4e2abb")
 let royalPurpleMonoA = Color(hex: "9B7EF2")

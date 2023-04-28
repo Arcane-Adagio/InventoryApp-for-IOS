@@ -13,6 +13,7 @@ struct VehicleDetailView: View {
     @State var editMode = false
     @State var selectedNote = NoteSection.general
     @State var showingDefaultAttributes = true
+    @State var selectedColor: Color
     @State var selectedYear: Int
     @State var collapse = false
     let charLengthVIN = 17
@@ -25,6 +26,7 @@ struct VehicleDetailView: View {
         self._vehicle = StateObject(wrappedValue: vehicle)
         self._selectedDate = State(initialValue: DateFormatter.formate.date(from: vehicle.tagExp) ?? Date())
         self._selectedYear = State(initialValue: Int(vehicle.year) ?? 2_023)
+        self._selectedColor = State(initialValue: convertStringToColor(vehicle.color))
     }
 
     struct AttributeLabel: View {
@@ -54,7 +56,7 @@ struct VehicleDetailView: View {
                         .padding(.bottom, 10)
                     VStack {
                         TabView {
-                            Attribute1Panel(_vehicle, editMode, $selectedDate)
+                            Attribute1Panel(_vehicle, editMode, $selectedDate, $selectedColor)
                                 .offset(y: -20)
                             Attribute2Panel(_vehicle, editMode, $selectedYear)
                                 .offset(y: -20)
@@ -82,11 +84,14 @@ struct VehicleDetailView: View {
         @StateObject var vehicle: VehicleItem
         var editMode: Bool
         @Binding var selectedDate: Date
+        @Binding var selectedColor: Color
 
-        init(_ vehicle: StateObject<VehicleItem>, _ editMode: Bool, _ selectedDate: Binding<Date>) {
+        init(_ vehicle: StateObject<VehicleItem>, _ editMode: Bool, _ selectedDate: Binding<Date>,
+             _ selectedColor: Binding<Color>) {
             self.editMode = editMode
             self._vehicle = vehicle
             self._selectedDate = selectedDate
+            self._selectedColor = selectedColor
         }
 
         var body: some View {
@@ -117,23 +122,16 @@ struct VehicleDetailView: View {
                     .padding(.bottom, 3)
                 }
                 .padding(.horizontal)
-                HStack {
-                    AttributeLabel("Color:")
-                    Spacer()
-                    TextField("Color", text: $vehicle.color)
-                    // Only allow textField editing while in Edit Mode
-                        .disabled(!editMode)
-                    // Align the textfield to the right of the view
-                        .multilineTextAlignment(.trailing)
-                    // set the font to look nice
-                        .font(.system(size: 16, weight: .none, design: .rounded))
-                        .background(editMode ? editOverlay : nil)
-                        .padding(.trailing, 10)
-                        .onChange(of: vehicle.color) { newColor in
-                            self.vehicle.color = String(newColor.prefix(17))
-                        }
+                ColorPicker(selection: $selectedColor, supportsOpacity: true) {
+                    Text("Color:")
+                        .font(.system(size: 16, weight: .bold, design: .rounded))
                 }
+                .disabled(!editMode)
+                .padding(.trailing, 10)
                 .padding(.horizontal)
+                .onChange(of: selectedColor) {
+                    vehicle.color = convertColorToString($0)
+                }
             }
         }
     }

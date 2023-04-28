@@ -18,6 +18,7 @@ struct VehicleCreationView: View {
     @State var mechanicText = ""
     @State var prompt: Fragments = .initial
     @State var selectedDate = Date()
+    @State var selectedColor = Color.white
     @State var selectedYear = 2_023
     var onSubmit: (VehicleItem) -> Void
     @Environment(\.dismiss) var dismiss
@@ -97,17 +98,24 @@ struct VehicleCreationView: View {
                             .padding(.bottom, 30)
                         switch prompt {
                         case .initial:
+                            ColorPicker(selection: $selectedColor, supportsOpacity: true) {
+                                Text("Color:")
+                                    .font(.system(size: 14, weight: .none, design: .rounded))
+                            }
+                            .onChange(of: selectedColor) {
+                                self.entryColor = convertColorToString($0)
+                            }
+                            MyDatePicker(label: "Tag Expiration", date: $selectedDate) { date in
+                                self.entryTagEx = DateFormatter.formate.string(from: date)
+                            }
+                            .font(.system(size: 14, weight: .none, design: .rounded))
+                            .foregroundColor(.white)
                             MyYearPicker(label: "Year", date: $selectedYear)
                                 .onChange(of: selectedYear) { newYear in
                                     self.entryYear = String(newYear)
                                 }
                                 .font(.system(size: 15, weight: .none, design: .rounded))
                                 .padding([.trailing], -10)
-                            MyDatePicker(label: "Tag Expiration", date: $selectedDate) { date in
-                                self.entryTagEx = DateFormatter.formate.string(from: date)
-                            }
-                            .font(.system(size: 14, weight: .none, design: .rounded))
-                            .foregroundColor(.white)
                             InputTextView(hint: "Make", userInput: $entryMake, fontSize: textFieldFontSize)
                                 .onReceive(entryMake.publisher.collect()) {
                                     self.entryMake = String($0.prefix(15))
@@ -125,12 +133,6 @@ struct VehicleCreationView: View {
                                 // Set maximum characters as Valid VIN + 3
                                 .onReceive(entryVIN.publisher.collect()) {
                                     self.entryVIN = String($0.prefix(charLengthVIN)).uppercased()
-                                }
-                                .padding(.top, 5)
-                            InputTextView(hint: "Color", userInput: $entryColor, fontSize: textFieldFontSize)
-                                // Set maximum characters as 5
-                                .onReceive(entryColor.publisher.collect()) {
-                                    self.entryColor = String($0.prefix(15))
                                 }
                                 .padding(.top, 5)
                         default:

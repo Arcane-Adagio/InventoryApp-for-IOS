@@ -25,7 +25,8 @@ struct ContentView: View {
         ZStack {
             BackgroundView()
             TabView {
-                OfflineInventoryView()
+//                OfflineInventoryView()
+                VehicleInventoryView()
                     .tabItem {
                         Image(systemName: "wifi.slash")
                         Text("Offline")

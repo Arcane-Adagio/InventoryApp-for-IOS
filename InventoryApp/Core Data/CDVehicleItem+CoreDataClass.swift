@@ -49,6 +49,29 @@ public class CDVehicleItem: NSManagedObject {
     }
 
     @nonobjc
+    class func fetchCDVehicleItems() -> [CDVehicleItem] {
+        let request: NSFetchRequest<CDVehicleItem> = NSFetchRequest<CDVehicleItem>(entityName: "CDVehicleItem")
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        var cdVehicleItems: [CDVehicleItem]
+        do {
+            cdVehicleItems = try PersistenceController.shared.viewContext.fetch(request)
+        } catch {
+            cdVehicleItems = []
+        }
+
+        if !cdVehicleItems.isEmpty {
+            var vehicleArray: [CDVehicleItem] = []
+            for cdVehicleItem in cdVehicleItems {
+                vehicleArray.append(cdVehicleItem)
+            }
+            return vehicleArray
+        } else {
+            return []
+        }
+    }
+
+    @nonobjc
     internal func assignVehicleItem(_ vehicleItem: VehicleItem) {
         self.color = vehicleItem.color
         self.year = Int64(Int(vehicleItem.year) ?? 0)

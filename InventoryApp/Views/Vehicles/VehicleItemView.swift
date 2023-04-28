@@ -11,7 +11,6 @@ struct VehicleItemView: View {
     @ObservedObject var vehicle: VehicleItem
     @State var showDetailSheet = false
     var moreInfo: () -> Void
-    var saveToCoreData: (VehicleItem) -> Void
 
     var body: some View {
         VStack {
@@ -39,7 +38,7 @@ struct VehicleItemView: View {
             }
         }
         .fullScreenCover(isPresented: $showDetailSheet) {
-            VehicleDetailView(vehicle: vehicle, saveFunc: saveToCoreData)
+            VehicleDetailView(vehicle: vehicle)
         }
     }
 }
@@ -48,7 +47,7 @@ struct VehicleItemView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundView()
-            VehicleItemView(vehicle: VehicleItem(), moreInfo: {}) { _ in 
+            VehicleItemView(vehicle: VehicleItem()) {
                 // 
             }
         }

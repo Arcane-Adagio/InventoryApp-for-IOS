@@ -10,20 +10,10 @@ import SwiftUI
 
 struct OfflineInventoryView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @State var vehicles: [VehicleItem] = []
     @State var showCreationSheet = false
     @State var showDetailSheet = false
     let debugMode = false
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \CDVehicleItem.id, ascending: true)],
-        animation: .default)
-
-    private var items2: FetchedResults<CDVehicleItem>
-
-    init() {
-        _vehicles = State(initialValue: CDVehicleItem.fetchVehicleItems())
-    }
+    @StateObject var inventoryVM = OfflineVehicleInventoryViewModel.singleton
 
     var emptyInventoryView: some View {
         VStack {
@@ -47,31 +37,16 @@ struct OfflineInventoryView: View {
         showDetailSheet.toggle()
     }
 
-    func modifyCoreDate(_ modVehicle: VehicleItem) {
-        guard let cdVehicleIndex = items2.firstIndex(where: { $0.id ?? UUID() == modVehicle.id }) else {
-            print("failed to save")
-            print("here's what you gave \(modVehicle.id)")
-            print("here's what's in storage: \(items2.map { $0.id })")
-            return
-        }
-        items2[cdVehicleIndex].assignVehicleItem(modVehicle)
-
-        do {
-            try viewContext.save()
-        } catch {
-            print("debug: no")
-        }
-    }
-
     var body: some View {
         NavigationStack {
             ZStack {
                 BackgroundView()
                 HStack {
-                    if !vehicles.isEmpty {
+                    if !inventoryVM.vehicles.isEmpty {
                         List {
-                            ForEach(vehicles) { vehicle in
-                                VehicleItemView(vehicle: vehicle, moreInfo: detailView, saveToCoreData: modifyCoreDate(_:))
+                            ForEach(inventoryVM.vehicles) { vehicle in
+                                VehicleItemView(vehicle: vehicle,
+                                                moreInfo: detailView)
                                 // Draws a background stroke around each list item
                                     .listRowBackground(
                                         EmptyView()
@@ -95,7 +70,9 @@ struct OfflineInventoryView: View {
                                     .listStyle(.plain)
                             }
                             // List modifier to allow swipe to delete
-                            .onDelete(perform: deleteVehicleItem(offsets:))
+                            .onDelete { indiceSet in
+                                inventoryVM.deleteVehicleItem(offsets: indiceSet, context: viewContext)
+                            }
                         }
                         // Prevents List style from overriding background
                         .scrollContentBackground(.hidden)
@@ -109,56 +86,18 @@ struct OfflineInventoryView: View {
                     }
                 }
             }
-            .navigationTitle("Vehicles")
+            .navigationTitle("Inventories")
         }
         .tint(primaryLightColor)
         .sheet(isPresented: $showCreationSheet) {
-            VehicleCreationView(addVehicleItem(_:))
+            VehicleCreationView(inventoryVM.addVehicleItem(_:))
         }
     }
-
-    func addItem() {
-        withAnimation {
-            let newItem = CDInventory(context: viewContext)
-            newItem.name = "placerholder"
-            newItem.id = UUID()
-
-            do {
-                try viewContext.save()
-            } catch {
-                print("debug: no")
-            }
-        }
-    }
-
-    func addVehicleItem(_ vehicleItem: VehicleItem = VehicleItem()) {
-        withAnimation {
-            CDVehicleItem.addVehicleItem(vehicleItem)
-            vehicles.append(vehicleItem)
-        }
-    }
-
-    func deleteVehicleItem(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                viewContext.delete(items2[index])
-                vehicles.remove(at: index)
-                try? viewContext.save()
-            }
-        }
-    }
-
-    private let itemFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .medium
-        return formatter
-    }()
 
     var floatingActionButton: some View {
         Button {
             if debugMode {
-                addVehicleItem()
+                inventoryVM.addVehicleItem()
             } else {
                 showCreationSheet.toggle()
             }

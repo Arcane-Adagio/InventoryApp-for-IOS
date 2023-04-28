@@ -21,7 +21,8 @@ class VehicleItem: ObservableObject, Identifiable {
 
     init(year: String = "2077", make: String = "Ferrari",
          model: String = "Pilot", vin: String = "SPEEDDELABAMALAND", id: UUID = UUID(),
-         tagExp: String = "04-04-2077", color: String = "Ruby Red",
+         tagExp: String = "04-04-2077",
+         color: String = "[0.70, 0.76, -6.1, 1.0]",
          genNotes: String = "This thing is fast",
          mechNotes: String = "Needs oil change") {
         self.year = year
@@ -42,7 +43,7 @@ class VehicleItem: ObservableObject, Identifiable {
         self.model = "Pilot"
         self.vin = "SPEEDDELABAMALAND"
         self.tagExp = "04-04-2077"
-        self.color = "Ruby Red"
+        self.color = "[0.70, 0.76, -6.1, 1.0]"
         self.genNotes = "This thing is fast"
         self.mechNotes = "Needs oil change"
         self.id = UUID()

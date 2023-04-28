@@ -25,6 +25,7 @@ struct VehicleDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     init(vehicle: VehicleItem, saveFunc: @escaping (VehicleItem) -> Void) {
+        /* Note: this runs multiple times when DatePicker is updated */
         self._vehicle = StateObject(wrappedValue: vehicle)
         self._selectedDate = State(initialValue: DateFormatter.formate.date(from: vehicle.tagExp) ?? Date())
         self._selectedYear = State(initialValue: Int(vehicle.year) ?? 2_023)
@@ -91,6 +92,13 @@ struct VehicleDetailView: View {
         saveFunc(vehicle)
     }
 
+    func vehicleTagExpHasChanged(_ tagExp: String) {
+        // update UI
+        self.vehicle.tagExp = tagExp
+        // save to core data if data is different
+        saveFunc(vehicle)
+    }
+
     func vehicleModelHasChanged(_ model: String) {
         // update UI
         self.vehicle.model = model
@@ -137,6 +145,7 @@ struct VehicleDetailView: View {
             .onChange(of: vehicle.mechNotes, perform: vehicleMechNoteHasChanged(_:))
             .onChange(of: vehicle.make, perform: vehicleMakeHasChanged(_:))
             .onChange(of: vehicle.model, perform: vehicleModelHasChanged(_:))
+            .onChange(of: vehicle.tagExp, perform: vehicleTagExpHasChanged(_:))
             .onChange(of: vehicle.vin) { [oldVin = vehicle.vin] newVin in
                 self.vehicleVINHasChanged(oldVin, newVin)
             }

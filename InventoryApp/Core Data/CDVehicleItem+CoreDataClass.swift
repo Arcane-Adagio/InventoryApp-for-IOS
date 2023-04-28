@@ -19,6 +19,7 @@ public class CDVehicleItem: NSManagedObject {
             vin: vin ?? "",
             id: id ?? UUID(),
             tagExp: tagExpiration ?? "",
+            color: color ?? "[0,0,0,0]",
             genNotes: genNotes ?? "",
             mechNotes: mechNotes ?? ""
         )
@@ -49,6 +50,7 @@ public class CDVehicleItem: NSManagedObject {
 
     @nonobjc
     internal func assignVehicleItem(_ vehicleItem: VehicleItem) {
+        self.color = vehicleItem.color
         self.year = Int64(Int(vehicleItem.year) ?? 0)
         self.make = vehicleItem.make
         self.model = vehicleItem.model

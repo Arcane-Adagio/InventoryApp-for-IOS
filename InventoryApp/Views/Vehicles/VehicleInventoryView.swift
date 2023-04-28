@@ -36,28 +36,28 @@ struct VehicleInventoryView: View {
                     if !vehicles.isEmpty {
                         List {
                             ForEach(vehicles) { vehicle in
-                                VehicleItemView(vehicle: vehicle, moreInfo: detailView)
-                                // Draws a background stroke around each list item
-                                    .listRowBackground(
-                                        EmptyView()
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke()
-                                            )
-                                            .padding(
-                                                EdgeInsets(
-                                                    top: 2,
-                                                    leading: 2,
-                                                    bottom: 2,
-                                                    trailing: 2
-                                                )
-                                            )
-                                    )
-                                // Adjusts the position of the title and icon in the row
-                                    .listRowInsets(.init(top: 5, leading: 0, bottom: 10, trailing: 20))
-                                // Does something important
-                                    .listRowSeparator(.hidden)
-                                    .listStyle(.plain)
+//                                VehicleItemView(vehicle: vehicle, moreInfo: detailView, saveToCoreData: <#(VehicleItem) -> Void#>)
+//                                // Draws a background stroke around each list item
+//                                    .listRowBackground(
+//                                        EmptyView()
+//                                            .overlay(
+//                                                RoundedRectangle(cornerRadius: 10)
+//                                                    .stroke()
+//                                            )
+//                                            .padding(
+//                                                EdgeInsets(
+//                                                    top: 2,
+//                                                    leading: 2,
+//                                                    bottom: 2,
+//                                                    trailing: 2
+//                                                )
+//                                            )
+//                                    )
+//                                // Adjusts the position of the title and icon in the row
+//                                    .listRowInsets(.init(top: 5, leading: 0, bottom: 10, trailing: 20))
+//                                // Does something important
+//                                    .listRowSeparator(.hidden)
+//                                    .listStyle(.plain)
                             }
                             // List modifier to allow swipe to delete
                             .onDelete(perform: deleteVehicleItem(offsets:))

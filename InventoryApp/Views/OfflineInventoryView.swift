@@ -47,6 +47,22 @@ struct OfflineInventoryView: View {
         showDetailSheet.toggle()
     }
 
+    func modifyCoreDate(_ modVehicle: VehicleItem) {
+        guard let cdVehicleIndex = items2.firstIndex(where: { $0.id ?? UUID() == modVehicle.id }) else {
+            print("failed to save")
+            print("here's what you gave \(modVehicle.id)")
+            print("here's what's in storage: \(items2.map { $0.id })")
+            return
+        }
+        items2[cdVehicleIndex].assignVehicleItem(modVehicle)
+
+        do {
+            try viewContext.save()
+        } catch {
+            print("debug: no")
+        }
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -55,7 +71,7 @@ struct OfflineInventoryView: View {
                     if !vehicles.isEmpty {
                         List {
                             ForEach(vehicles) { vehicle in
-                                VehicleItemView(vehicle: vehicle, moreInfo: detailView)
+                                VehicleItemView(vehicle: vehicle, moreInfo: detailView, saveToCoreData: modifyCoreDate(_:))
                                 // Draws a background stroke around each list item
                                     .listRowBackground(
                                         EmptyView()

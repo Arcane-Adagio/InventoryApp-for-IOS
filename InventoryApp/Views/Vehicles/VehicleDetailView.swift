@@ -10,23 +10,26 @@ import SwiftUI
 struct VehicleDetailView: View {
     @StateObject var vehicle: VehicleItem
     @State var selectedDate: Date
-    @State var editMode = false
+    @State var editMode = true
     @State var selectedNote = NoteSection.general
     @State var showingDefaultAttributes = true
     @State var selectedColor: Color
     @State var selectedYear: Int
     @State var collapse = false
+    let saveFunc: (VehicleItem) -> Void
     let charLengthVIN = 17
     var cardGradient = LinearGradient(gradient: Gradient(colors: [royalPurpleMonoC, royalPurpleComplA]),
                                       startPoint: .bottomLeading, endPoint: .topTrailing)
     var backgroundColor = LinearGradient(gradient: Gradient(colors: [Color(hex: "7550bc"), Color(hex: "1c067d")]),
                                          startPoint: .topLeading, endPoint: .bottomLeading)
+    @Environment(\.managedObjectContext) private var viewContext
 
-    init(vehicle: VehicleItem) {
+    init(vehicle: VehicleItem, saveFunc: @escaping (VehicleItem) -> Void) {
         self._vehicle = StateObject(wrappedValue: vehicle)
         self._selectedDate = State(initialValue: DateFormatter.formate.date(from: vehicle.tagExp) ?? Date())
         self._selectedYear = State(initialValue: Int(vehicle.year) ?? 2_023)
         self._selectedColor = State(initialValue: convertStringToColor(vehicle.color))
+        self.saveFunc = saveFunc
     }
 
     struct AttributeLabel: View {
@@ -40,6 +43,59 @@ struct VehicleDetailView: View {
             Text(labelText)
                 .font(.system(size: 16, weight: .bold, design: .rounded))
         }
+    }
+
+    func vehicleVINHasChanged(_ oldVin: String, _ newVin: String) {
+        // perform input validation
+        let validatedString = String(newVin.uppercased().prefix(17))
+        // update UI
+        self.vehicle.vin = validatedString
+        // save to core data if data is different
+        if validatedString.count == 17 && oldVin.uppercased() != validatedString {
+            saveFunc(vehicle)
+        }
+    }
+
+    func vehicleColorHasChanged(_ color: Color) {
+        // update UI
+        vehicle.color = convertColorToString(color)
+        // save to core data if data is different
+        saveFunc(vehicle)
+    }
+
+    func vehicleYearHasChanged(_ newYear: Int) {
+        // update UI
+        self.vehicle.year = String(newYear)
+        // save to core data if data is different
+        saveFunc(vehicle)
+    }
+
+    func vehicleGenNoteHasChanged(_ note: String) {
+        // update UI
+        self.vehicle.genNotes = note
+        // save to core data if data is different
+        saveFunc(vehicle)
+    }
+
+    func vehicleMechNoteHasChanged(_ note: String) {
+        // update UI
+        self.vehicle.mechNotes = note
+        // save to core data if data is different
+        saveFunc(vehicle)
+    }
+
+    func vehicleMakeHasChanged(_ make: String) {
+        // update UI
+        self.vehicle.make = make
+        // save to core data if data is different
+        saveFunc(vehicle)
+    }
+
+    func vehicleModelHasChanged(_ model: String) {
+        // update UI
+        self.vehicle.model = model
+        // save to core data if data is different
+        saveFunc(vehicle)
     }
 
     var body: some View {
@@ -75,6 +131,15 @@ struct VehicleDetailView: View {
                     .padding(.top, collapse ? -20 : -10)
                 Spacer()
             }
+            .onChange(of: selectedColor, perform: vehicleColorHasChanged(_:))
+            .onChange(of: selectedYear, perform: vehicleYearHasChanged(_:))
+            .onChange(of: vehicle.genNotes, perform: vehicleGenNoteHasChanged(_:))
+            .onChange(of: vehicle.mechNotes, perform: vehicleMechNoteHasChanged(_:))
+            .onChange(of: vehicle.make, perform: vehicleMakeHasChanged(_:))
+            .onChange(of: vehicle.model, perform: vehicleModelHasChanged(_:))
+            .onChange(of: vehicle.vin) { [oldVin = vehicle.vin] newVin in
+                self.vehicleVINHasChanged(oldVin, newVin)
+            }
         }
 
         .navigationBarHidden(true)
@@ -100,9 +165,6 @@ struct VehicleDetailView: View {
                     AttributeLabel("VIN:")
                     Spacer()
                     TextField("VIN", text: $vehicle.vin)
-                        .onChange(of: vehicle.vin) { newVin in
-                            self.vehicle.vin = String(newVin.uppercased().prefix(17))
-                        }
                     // Only allow textField editing while in Edit Mode
                         .disabled(!editMode)
                     // Align the textfield to the right of the view
@@ -129,14 +191,12 @@ struct VehicleDetailView: View {
                 .disabled(!editMode)
                 .padding(.trailing, 10)
                 .padding(.horizontal)
-                .onChange(of: selectedColor) {
-                    vehicle.color = convertColorToString($0)
-                }
             }
         }
     }
 
     struct VehicleNotesView: View {
+        @Environment(\.managedObjectContext) private var viewContext
         @StateObject var vehicle: VehicleItem
         var editMode: Bool
         @Binding var selectedNote: NoteSection
@@ -240,6 +300,7 @@ struct VehicleDetailView: View {
     }
 
     struct Attribute2Panel: View {
+        @Environment(\.managedObjectContext) private var viewContext
         @StateObject var vehicle: VehicleItem
         var editMode: Bool
         @Binding var selectedYear: Int
@@ -256,11 +317,7 @@ struct VehicleDetailView: View {
                     .tint(.white)
                     .foregroundColor(.white)
                     .disabled(!editMode)
-                    .onChange(of: selectedYear) { newYear in
-                        self.vehicle.year = String(newYear)
-                    }
                     .font(.system(size: 16, weight: .bold, design: .rounded))
-
                     .padding(.trailing, -10)
                     .padding(.top, -7)
                 HStack {
@@ -311,6 +368,8 @@ private var editColor: some View {
 
 struct VehicleDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleDetailView(vehicle: VehicleItem())
+        VehicleDetailView(vehicle: VehicleItem()) { _ in 
+            //
+        }
     }
 }

@@ -15,6 +15,10 @@ struct ContentView: View {
     init() { // for ios15 compatibility
         UITextView.appearance().backgroundColor = .clear
         UITableView.appearance().backgroundColor = .clear
+        // for other stuff
+//        UISegmentedControl.appearance().selectedSegmentTintColor = .blue
+//        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+//        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
     }
 
     var body: some View {

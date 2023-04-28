@@ -10,6 +10,7 @@ import SwiftUI
 struct MyYearPicker: View {
     let label: String
     @Binding var date: Int
+    let currentYear = (Int(DateFormatter.getYear.string(from: Date())) ?? 2_099) + 1
 
     var body: some View {
         HStack {
@@ -17,7 +18,7 @@ struct MyYearPicker: View {
 
             Spacer()
             Picker("", selection: $date) {
-                ForEach(1_980...2_100, id: \.self) {
+                ForEach(1_980...currentYear, id: \.self) {
                     Text(String($0))
                 }
             }

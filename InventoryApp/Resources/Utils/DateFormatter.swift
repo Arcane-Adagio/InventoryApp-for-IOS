@@ -13,6 +13,12 @@ extension DateFormatter {
         dateFormatter.dateFormat = "MM-dd-yyyy"
         return dateFormatter
     }
+
+    static var getYear: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        return dateFormatter
+    }
 }
 
 func textfieldModi(_ tType: TextFieldType, _ text: String) -> String {

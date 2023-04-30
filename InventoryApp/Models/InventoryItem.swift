@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-class InventoryItem: ObservableObject {
+class InventoryItem: ObservableObject, Identifiable {
+    @Published var id: UUID
     @Published var checked: Bool
     @Published var name: String
     @Published var quantityRS: String
@@ -17,11 +18,13 @@ class InventoryItem: ObservableObject {
     @Published var note: String
     @Published var checkable: Bool
     @Published var auditLog: [String]
+    @Published var brand: String
 
     init(checked: Bool = false, name: String = "Sample Item",
          quantityOH: String = "5", quantityRS: String = "10", date: Date = Date(),
          note: String = "The fitness gram pacer test is...",
-         checkable: Bool = false, auditLog: [String] = []) {
+         checkable: Bool = false, auditLog: [String] = [], id: UUID = UUID(),
+         brand: String = "") {
         self.checked = checked
         self.name = name
         self.quantityOH = quantityOH
@@ -30,6 +33,8 @@ class InventoryItem: ObservableObject {
         self.note = note
         self.checkable = checkable
         self.auditLog = auditLog
+        self.id = id
+        self.brand = brand
     }
 
     // For nil coalescing
@@ -42,5 +47,13 @@ class InventoryItem: ObservableObject {
         self.note = "The fitness gram pacer test is..."
         self.checkable = false
         self.auditLog = []
+        self.id = UUID()
+        self.brand = ""
+    }
+}
+
+extension InventoryItem: Equatable {
+    static func == (lhs: InventoryItem, rhs: InventoryItem) -> Bool {
+        return lhs.id == rhs.id
     }
 }

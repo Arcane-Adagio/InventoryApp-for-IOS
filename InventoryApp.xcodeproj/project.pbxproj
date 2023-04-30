@@ -79,6 +79,11 @@
 		BEE8FF8329FF2C5500B93943 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8FF8229FF2C5500B93943 /* View.swift */; };
 		BEE8FF8729FF2E3B00B93943 /* OldVehicleInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8FF8629FF2E3B00B93943 /* OldVehicleInventoryView.swift */; };
 		BEE8FF8B29FF2F1B00B93943 /* OldVehicleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8FF8A29FF2F1B00B93943 /* OldVehicleItemView.swift */; };
+		BEE8FF8E29FF32FE00B93943 /* StockCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8FF8D29FF32FE00B93943 /* StockCreationView.swift */; };
+		BEE8FF9029FF330A00B93943 /* StockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8FF8F29FF330A00B93943 /* StockDetailView.swift */; };
+		BEE8FF9229FF332700B93943 /* StockInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8FF9129FF332700B93943 /* StockInventoryView.swift */; };
+		BEE8FF9529FF34BE00B93943 /* StockItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8FF9429FF34BE00B93943 /* StockItemCardView.swift */; };
+		BEE8FF9729FF34D700B93943 /* OfflineStockInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8FF9629FF34D700B93943 /* OfflineStockInventoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +179,11 @@
 		BEE8FF8229FF2C5500B93943 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		BEE8FF8629FF2E3B00B93943 /* OldVehicleInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldVehicleInventoryView.swift; sourceTree = "<group>"; };
 		BEE8FF8A29FF2F1B00B93943 /* OldVehicleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldVehicleItemView.swift; sourceTree = "<group>"; };
+		BEE8FF8D29FF32FE00B93943 /* StockCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCreationView.swift; sourceTree = "<group>"; };
+		BEE8FF8F29FF330A00B93943 /* StockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailView.swift; sourceTree = "<group>"; };
+		BEE8FF9129FF332700B93943 /* StockInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockInventoryView.swift; sourceTree = "<group>"; };
+		BEE8FF9429FF34BE00B93943 /* StockItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemCardView.swift; sourceTree = "<group>"; };
+		BEE8FF9629FF34D700B93943 /* OfflineStockInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OfflineStockInventoryViewModel.swift; path = InventoryApp/Views/Stocks/StockComponents/OfflineStockInventoryViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +270,7 @@
 				BEB0683F2995D85D00958EEA /* Resources */,
 				BEB0683C2995D53E00958EEA /* Components */,
 				BEB068392995D28100958EEA /* Views */,
+				BEE8FF9829FF36CA00B93943 /* Models */,
 				BEB068382995D27600958EEA /* ViewModels */,
 				BEB068062995CAD700958EEA /* InventoryAppApp.swift */,
 				BEB0680F2995CAD900958EEA /* Assets.xcassets */,
@@ -300,6 +311,7 @@
 			children = (
 				BED254C12999E36900DC7093 /* LoginViewModel.swift */,
 				BECF2D5F29FC3FD9003ED9CB /* OfflineVehicleInventoryViewModel.swift */,
+				BEE8FF9629FF34D700B93943 /* OfflineStockInventoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -310,6 +322,7 @@
 				BEC52B5A29D325600061B0D4 /* Components */,
 				BEC52B5229D23B360061B0D4 /* Core */,
 				BEC52B5129D23B160061B0D4 /* Vehicles */,
+				BEE8FF8C29FF32AA00B93943 /* Stocks */,
 				BEC52B5029D23AF10061B0D4 /* Online */,
 				BE9386B1299875110084A4D3 /* ProfileInfoCard.swift */,
 				BED254C9299B00A500DC7093 /* OfflineInventoryView.swift */,
@@ -327,8 +340,6 @@
 				BE9386B629993FCA0084A4D3 /* LottieView.swift */,
 				BE9386DC299964C50084A4D3 /* GenericTextView.swift */,
 				BED254C7299AFEAB00DC7093 /* InputValidator.swift */,
-				BE9AF49D29A2D2B00039000D /* VehicleItem.swift */,
-				BE9AF49F29A2D2F30039000D /* InventoryItem.swift */,
 				BE9AF4A129A2D4070039000D /* Stack.swift */,
 				BE9AF4A729A2DBCF0039000D /* PersistenceController.swift */,
 				BE98B0E829F9FBAF0074B520 /* MyYearPicker.swift */,
@@ -449,6 +460,34 @@
 				BEE8FF8A29FF2F1B00B93943 /* OldVehicleItemView.swift */,
 			);
 			path = LegacyComponents;
+			sourceTree = "<group>";
+		};
+		BEE8FF8C29FF32AA00B93943 /* Stocks */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8FF9329FF333400B93943 /* StockComponents */,
+				BEE8FF8D29FF32FE00B93943 /* StockCreationView.swift */,
+				BEE8FF8F29FF330A00B93943 /* StockDetailView.swift */,
+				BEE8FF9129FF332700B93943 /* StockInventoryView.swift */,
+			);
+			path = Stocks;
+			sourceTree = "<group>";
+		};
+		BEE8FF9329FF333400B93943 /* StockComponents */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8FF9429FF34BE00B93943 /* StockItemCardView.swift */,
+			);
+			path = StockComponents;
+			sourceTree = "<group>";
+		};
+		BEE8FF9829FF36CA00B93943 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE9AF49D29A2D2B00039000D /* VehicleItem.swift */,
+				BE9AF49F29A2D2F30039000D /* InventoryItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -625,10 +664,12 @@
 			files = (
 				BE9386B029986CB10084A4D3 /* CreateAccountView.swift in Sources */,
 				BED254F9299C870100DC7093 /* CDInventory+CoreDataClass.swift in Sources */,
+				BEE8FF8E29FF32FE00B93943 /* StockCreationView.swift in Sources */,
 				BE98B0E929F9FBAF0074B520 /* MyYearPicker.swift in Sources */,
 				BE98B0ED29F9FCC60074B520 /* MyDatePicker.swift in Sources */,
 				BEB0683B2995D3F500958EEA /* BackgroundView.swift in Sources */,
 				BE9386AA299864770084A4D3 /* GenericPopUp.swift in Sources */,
+				BEE8FF9529FF34BE00B93943 /* StockItemCardView.swift in Sources */,
 				BECF2D6029FC3FD9003ED9CB /* OfflineVehicleInventoryViewModel.swift in Sources */,
 				BEB0680C2995CAD700958EEA /* InventoryApp.xcdatamodeld in Sources */,
 				BEB068412995D88D00958EEA /* Strings.swift in Sources */,
@@ -636,6 +677,7 @@
 				BEB068072995CAD700958EEA /* InventoryAppApp.swift in Sources */,
 				BEB068372995D0A000958EEA /* GlobalConstants.swift in Sources */,
 				BED25501299DC25100DC7093 /* OfflineItemView.swift in Sources */,
+				BEE8FF9029FF330A00B93943 /* StockDetailView.swift in Sources */,
 				BE1F469B29AEEFC4004F1790 /* oldCodeSavedForLater.swift in Sources */,
 				BED254C8299AFEAB00DC7093 /* InputValidator.swift in Sources */,
 				BEB3667E29D5E04100C44FBE /* IOS15TextField.swift in Sources */,
@@ -668,7 +710,9 @@
 				BEC52B5E29D326C30061B0D4 /* EmptyInventoryView.swift in Sources */,
 				BEE8FF8729FF2E3B00B93943 /* OldVehicleInventoryView.swift in Sources */,
 				BEC52B5829D325060061B0D4 /* VehicleInventoryView.swift in Sources */,
+				BEE8FF9729FF34D700B93943 /* OfflineStockInventoryViewModel.swift in Sources */,
 				BE98B0EB29F9FC4F0074B520 /* MyNotePicker.swift in Sources */,
+				BEE8FF9229FF332700B93943 /* StockInventoryView.swift in Sources */,
 				BED254FB299C870100DC7093 /* CDInventoryItem+CoreDataClass.swift in Sources */,
 				BEE8FF8129FF2C3A00B93943 /* VehicleItemCardView.swift in Sources */,
 				BE9386B2299875110084A4D3 /* ProfileInfoCard.swift in Sources */,

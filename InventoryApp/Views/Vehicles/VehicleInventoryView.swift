@@ -8,109 +8,102 @@
 import SwiftUI
 
 struct VehicleInventoryView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var viewmodel = OfflineVehicleInventoryViewModel.singleton
+    var sampleList = [VehicleItem(), VehicleItem(), VehicleItem(), VehicleItem(), VehicleItem(),
+                      VehicleItem(), VehicleItem(), VehicleItem(), VehicleItem()]
+    @State var fabIsOpen = false
+    @State var editMode = false
     @State var showCreationSheet = false
-    @State var showDetailSheet = false
-    let debugMode = false
-    @StateObject var inventoryVM = OfflineVehicleInventoryViewModel.singleton
-
-    var emptyInventoryView: some View {
-        VStack {
-            Spacer()
-            ZStack {
-                primaryDarkColor.opacity(0.3)
-                    .frame(height: 100)
-                    .cornerRadius(15)
-                    .shadow(radius: 10)
-                Text("No Inventories to Show")
-                    .shadow(radius: 3)
-            }
-            Spacer()
-            Spacer()
-        }
-        .padding(.horizontal, 30)
-        .padding(.vertical, 30)
-    }
-
-    func detailView() {
-        showDetailSheet.toggle()
-    }
+    @State var keyboardIsShowing = false
 
     var body: some View {
         NavigationStack {
             ZStack {
                 BackgroundView()
-                HStack {
-                    if !inventoryVM.vehicles.isEmpty {
-                        List {
-                            ForEach(inventoryVM.vehicles) { vehicle in
-                                VehicleItemView(vehicle: vehicle,
-                                                moreInfo: detailView)
-                                // Draws a background stroke around each list item
-                                    .listRowBackground(
-                                        EmptyView()
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke()
-                                            )
-                                            .padding(
-                                                EdgeInsets(
-                                                    top: 2,
-                                                    leading: 2,
-                                                    bottom: 2,
-                                                    trailing: 2
-                                                )
-                                            )
-                                    )
-                                // Adjusts the position of the title and icon in the row
-                                    .listRowInsets(.init(top: 5, leading: 0, bottom: 10, trailing: 20))
-                                // Does something important
-                                    .listRowSeparator(.hidden)
-                                    .listStyle(.plain)
-                            }
-                            // List modifier to allow swipe to delete
-                            .onDelete { indiceSet in
-                                inventoryVM.deleteVehicleItem(offsets: indiceSet, context: viewContext)
+                VStack {
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(viewmodel.vehicles) { vehicle in
+                                VehicleItemCardView(vehicle, editMode)
+                                    .padding(.vertical, 5)
+//                                    .onTapGesture { // this breaks color picker
+//                                        fabIsOpen = false
+//                                    }
                             }
                         }
-                        // Prevents List style from overriding background
-                        .scrollContentBackground(.hidden)
                     }
                 }
-                VStack {
+                HStack {
                     Spacer()
-                    HStack {
+                    VStack {
                         Spacer()
-                        floatingActionButton
+                        Button {
+                            showCreationSheet.toggle()
+                        } label: {
+                            Image(systemName: "plus")
+                                .frame(width: 8, height: 8)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(secondaryLightColor)
+                                .clipShape(Circle())
+                        }
+                        .tint(secondaryLightColor)
+                        .shadow(radius: 7)
+                        .padding(.bottom, 5)
+                        .disabled(!fabIsOpen)
+                        .opacity(fabIsOpen ? 1 : 0)
+                        Button {
+                            editMode.toggle()
+                        } label: {
+                            Image(systemName: editMode ? "pencil.line" : "pencil.slash")
+                                .frame(width: 8, height: 8)
+                                .tint(.white)
+                                .padding()
+                                .background(secondaryLightColor)
+                                .clipShape(Circle())
+                        }
+                        .frame(width: 50)
+                        .padding(.bottom, 5)
+                        .shadow(radius: 7)
+                        .disabled(!fabIsOpen)
+                        .opacity(fabIsOpen ? 1 : 0)
+                        Button {
+                            withAnimation(Animation.easeInOut(duration: 0.3)) {
+                                fabIsOpen.toggle()
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis")
+                                .frame(width: 25, height: 15)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(secondaryLightColor)
+                                .clipShape(Circle())
+                                .rotationEffect(.degrees(fabIsOpen ? 270 : 0))
+                        }
+                        .padding(.top, 5)
+                        .tint(secondaryLightColor)
+                        .shadow(radius: 5)
+                        .disabled(keyboardIsShowing)
+                        .opacity(keyboardIsShowing ? 0 : 1)
                     }
+                    .padding(.bottom, 50)
+                    .padding(.horizontal, 40)
+                }
+            }
+//            .onTapGesture { // this breaks color picker
+//                fabIsOpen = false
+//            }
+            .onReceive(keyboardPublisher) { value in
+                keyboardIsShowing = value
+                if value {
+                    fabIsOpen = false
                 }
             }
             .navigationTitle("Vehicles")
-        }
-        .tint(primaryLightColor)
-        .sheet(isPresented: $showCreationSheet) {
-            VehicleCreationView(inventoryVM.addVehicleItem(_:))
-        }
-    }
-
-    var floatingActionButton: some View {
-        Button {
-            if debugMode {
-                inventoryVM.addVehicleItem()
-            } else {
-                showCreationSheet.toggle()
+            .sheet(isPresented: $showCreationSheet) {
+                VehicleCreationView(viewmodel.addVehicleItem(_:))
             }
-        } label: {
-            Image(systemName: "plus")
-                .foregroundColor(.white)
-                .padding()
-                .background(secondaryLightColor)
-                .clipShape(Circle())
         }
-        .tint(secondaryLightColor)
-        .shadow(radius: 3)
-        .padding(.vertical, 50)
-        .padding(.horizontal, 40)
     }
 }
 

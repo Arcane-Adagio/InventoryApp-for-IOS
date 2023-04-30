@@ -1,14 +1,13 @@
 //
-//  OfflineInventoryView.swift
+//  OldVehicleInventoryView.swift
 //  InventoryApp
 //
-//  Created by Patrick Coleman on 2/13/23.
+//  Created by Patrick Coleman on 4/30/23.
 //
 
-import Foundation
 import SwiftUI
 
-struct OfflineInventoryView: View {
+struct OldVehicleInventoryView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var showCreationSheet = false
     @State var showDetailSheet = false
@@ -46,7 +45,7 @@ struct OfflineInventoryView: View {
                         List {
                             ForEach(inventoryVM.vehicles) { vehicle in
                                 OldVehicleItemView(vehicle: vehicle,
-                                                   moreInfo: detailView)
+                                                moreInfo: detailView)
                                 // Draws a background stroke around each list item
                                     .listRowBackground(
                                         EmptyView()
@@ -86,7 +85,7 @@ struct OfflineInventoryView: View {
                     }
                 }
             }
-            .navigationTitle("Inventories")
+            .navigationTitle("Vehicles")
         }
         .tint(primaryLightColor)
         .sheet(isPresented: $showCreationSheet) {
@@ -115,8 +114,8 @@ struct OfflineInventoryView: View {
     }
 }
 
-struct OfflineInventoryView_Previews: PreviewProvider {
+struct OldVehicleInventoryView_Previews: PreviewProvider {
     static var previews: some View {
-        OfflineInventoryView()
+        OldVehicleInventoryView()
     }
 }

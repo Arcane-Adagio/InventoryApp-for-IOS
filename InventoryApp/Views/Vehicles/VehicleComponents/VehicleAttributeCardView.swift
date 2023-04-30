@@ -158,7 +158,7 @@ struct VehicleAttributeCardView: View {
     }
 }
 
-private var editOverlay: some View {
+var editOverlay: some View {
     HStack {
         Spacer()
         Color.white

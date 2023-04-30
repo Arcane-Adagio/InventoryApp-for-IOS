@@ -1,13 +1,13 @@
 //
-//  VehicleItemView.swift
+//  OldVehicleItemView.swift
 //  InventoryApp
 //
-//  Created by Patrick Coleman on 2/19/23.
+//  Created by Patrick Coleman on 4/30/23.
 //
 
 import SwiftUI
 
-struct VehicleItemView: View {
+struct OldVehicleItemView: View {
     @ObservedObject var vehicle: VehicleItem
     @State var showDetailSheet = false
     var moreInfo: () -> Void
@@ -43,12 +43,12 @@ struct VehicleItemView: View {
     }
 }
 
-struct VehicleItemView_Previews: PreviewProvider {
+struct OldVehicleItemView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundView()
-            VehicleItemView(vehicle: VehicleItem()) {
-                // 
+            OldVehicleItemView(vehicle: VehicleItem()) {
+                //
             }
         }
     }

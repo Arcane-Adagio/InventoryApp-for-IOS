@@ -22,12 +22,14 @@ struct VehicleDetailView: View {
                                          startPoint: .topLeading, endPoint: .bottomLeading)
     @Environment(\.managedObjectContext) private var viewContext
 
-    init(vehicle: VehicleItem) {
+    init(vehicle: VehicleItem, compacted: Bool = false, editMode: Bool = false) {
         /* Note: this runs multiple times when DatePicker is updated */
         self._vehicle = StateObject(wrappedValue: vehicle)
         self._selectedDate = State(initialValue: DateFormatter.formate.date(from: vehicle.tagExp) ?? Date())
         self._selectedYear = State(initialValue: Int(vehicle.year) ?? 2_023)
         self._selectedColor = State(initialValue: convertStringToColor(vehicle.color))
+        self._collapse = State(initialValue: compacted)
+        self._editMode = State(initialValue: editMode)
     }
 
     var body: some View {
